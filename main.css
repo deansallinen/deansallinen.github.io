@@ -6,6 +6,7 @@ body {
     color: #444;
     padding: 0 10px;
     font-family: 'Roboto', serif;
+    background-color: #fffcf2;
 }
 
 h1, h2, h3 {
@@ -15,4 +16,44 @@ h1, h2, h3 {
 
 #header {
     text-align: center;
+    /*color:#EB5E28;*/
+}
+
+#wordmark {
+    font-family: 'Lobster', serif;
+    font-size: 40px;
+}
+
+table {
+    width: 100%;
+}
+
+.table_right {
+    text-align: right;
+}
+
+#colours {
+    height: 4em;
+    text-align: center;
+}
+
+#colour1 {
+    background-color: #2196F3;
+}
+
+#colour2 {
+    background-color: #4CAF50;
+}
+
+#colour3 {
+    background-color: #64B5F6;
+}
+
+#colour4 {
+    background-color: #9FD356;
+}
+
+#colour5 {
+    background-color: #342E37;
+    color: #fffcf2;
 }
