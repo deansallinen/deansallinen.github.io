@@ -23,12 +23,7 @@ img {
   margin-bottom: 22px;
 }
 
-#moodboard {
-  width: 100%;
-  height: auto;
-}
-
-#carousel img{
+.autowidth {
   width: 100%;
   height:auto;
 }
