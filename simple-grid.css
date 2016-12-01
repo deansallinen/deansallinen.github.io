@@ -28,6 +28,11 @@ img {
   height:auto;
 }
 
+.card {
+  background: #fafafa;
+  border-radius: 2px;
+}
+
 
 /* ROOT FONT STYLES */
 
