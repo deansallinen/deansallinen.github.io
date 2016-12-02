@@ -35,6 +35,10 @@ img {
   box-shadow: 0px 4px 10px #ddd;
 }
 
+.card h3, .card p {
+  padding-left: 16px;
+}
+
 .postit {
   background: #ffffa5;
   border-radius: 2px;
