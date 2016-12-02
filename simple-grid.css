@@ -25,7 +25,7 @@ img {
 
 .autowidth {
   width: 100%;
-  height:auto;
+  height: auto;
 }
 
 .card {
@@ -35,7 +35,9 @@ img {
 }
 
 .postit {
-  background:#ffffa5;
+  background: #ffffa5;
+  border-radius: 2px;
+  box-shadow: 0px 4px 10px #ddd;
 }
 
 .postit h3 {
