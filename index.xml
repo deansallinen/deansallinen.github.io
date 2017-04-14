@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dean Sallinen</title>
-    <link>https://example.org/</link>
+    <link>http://deansallinen.ca/</link>
     <description>Recent content on Dean Sallinen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Dean Sallinen</copyright>
     <lastBuildDate>Sat, 05 Nov 2016 18:25:22 +0530</lastBuildDate>
     
-	<atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://deansallinen.ca/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Last Skytrain</title>
-      <link>https://example.org/portfolio/the-last-skytrain/</link>
+      <link>http://deansallinen.ca/portfolio/the-last-skytrain/</link>
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/the-last-skytrain/</guid>
+      <guid>http://deansallinen.ca/portfolio/the-last-skytrain/</guid>
       <description>&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ferry Tracker</title>
-      <link>https://example.org/portfolio/ferry-tracker/</link>
+      <link>http://deansallinen.ca/portfolio/ferry-tracker/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/ferry-tracker/</guid>
+      <guid>http://deansallinen.ca/portfolio/ferry-tracker/</guid>
       <description>&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BCvotes.info</title>
-      <link>https://example.org/portfolio/bc-votes-info/</link>
+      <link>http://deansallinen.ca/portfolio/bc-votes-info/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/bc-votes-info/</guid>
+      <guid>http://deansallinen.ca/portfolio/bc-votes-info/</guid>
       <description>&lt;p&gt;A website to help citizens find their candidates and compare their platforms in the
 BC Provincial Election.
 &lt;/p&gt;</description>
@@ -45,10 +45,10 @@ BC Provincial Election.
     
     <item>
       <title>Get in touch!</title>
-      <link>https://example.org/contact/</link>
+      <link>http://deansallinen.ca/contact/</link>
       <pubDate>Sun, 06 Nov 2016 13:00:25 +0530</pubDate>
       
-      <guid>https://example.org/contact/</guid>
+      <guid>http://deansallinen.ca/contact/</guid>
       <description>Whether it&amp;rsquo;s feedback on one of my projects or an idea you want to collaborate on, I would love to hear from you!
 I usually respond to email within a day, and I check social media around once a week. Gotta stay productive!
 Recruiting? I&amp;rsquo;m currently looking for internships or Junior UX/UI roles to improve my skills and tackle new challenges.
@@ -57,10 +57,10 @@ Send me an email if you might be interested, and we can arrange a time to chat!<
     
     <item>
       <title>About me</title>
-      <link>https://example.org/about/</link>
+      <link>http://deansallinen.ca/about/</link>
       <pubDate>Sat, 05 Nov 2016 21:05:33 +0530</pubDate>
       
-      <guid>https://example.org/about/</guid>
+      <guid>http://deansallinen.ca/about/</guid>
       <description>An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law.
 Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too.</description>
     </item>

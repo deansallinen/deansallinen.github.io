@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portfolios on Dean Sallinen</title>
-    <link>https://example.org/portfolio/</link>
+    <link>http://deansallinen.ca/portfolio/</link>
     <description>Recent content in Portfolios on Dean Sallinen</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Dean Sallinen</copyright>
     <lastBuildDate>Sat, 05 Nov 2016 18:25:22 +0530</lastBuildDate>
     
-	<atom:link href="https://example.org/portfolio/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://deansallinen.ca/portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>The Last Skytrain</title>
-      <link>https://example.org/portfolio/the-last-skytrain/</link>
+      <link>http://deansallinen.ca/portfolio/the-last-skytrain/</link>
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/the-last-skytrain/</guid>
+      <guid>http://deansallinen.ca/portfolio/the-last-skytrain/</guid>
       <description>&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Ferry Tracker</title>
-      <link>https://example.org/portfolio/ferry-tracker/</link>
+      <link>http://deansallinen.ca/portfolio/ferry-tracker/</link>
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/ferry-tracker/</guid>
+      <guid>http://deansallinen.ca/portfolio/ferry-tracker/</guid>
       <description>&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>BCvotes.info</title>
-      <link>https://example.org/portfolio/bc-votes-info/</link>
+      <link>http://deansallinen.ca/portfolio/bc-votes-info/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
       
-      <guid>https://example.org/portfolio/bc-votes-info/</guid>
+      <guid>http://deansallinen.ca/portfolio/bc-votes-info/</guid>
       <description>&lt;p&gt;A website to help citizens find their candidates and compare their platforms in the
 BC Provincial Election.
 &lt;/p&gt;</description>
