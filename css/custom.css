@@ -4,3 +4,74 @@
   opacity: 0.2;
   font-size: 10px;
 }
+
+#aboutimg{
+  width: 100%;
+}
+
+.persona {
+  display: grid;
+  grid-template-areas:
+  "bio"
+  "bio-text";
+  padding-bottom: 2em;
+}
+
+
+
+.bio {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  grid-area: bio;
+}
+
+.bio img {
+  max-height: 200px;
+  border-radius: 100px;
+  padding: 2em;
+  grid-area: bio-img;
+}
+
+.bio-details{
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-areas: "bio-img bio-p";
+}
+
+.bio-details p {
+  display: flex;
+  align-items: flex-end;
+  grid-area: bio-p;
+}
+
+.bio-text {
+  grid-area: bio-text;
+}
+
+blockquote {
+  color: #999;
+}
+
+@media only screen and (min-width: 1300px) {
+  .persona {
+    grid-gap: 2em;
+    grid-template-columns: auto 70%;
+    grid-template-areas:
+    "bio bio-text";
+  }
+  .bio-details {
+    grid-template-columns: auto;
+    grid-template-areas:
+    "bio-img"
+    "bio-p";
+    text-align: center;
+  }
+  .bio-details p {
+    display: block;
+  }
+  .bio-text {
+    padding-top: 2.5em;
+    max-width: 700px;
+  }
+}

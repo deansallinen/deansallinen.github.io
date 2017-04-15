@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 Dean Sallinen</copyright>
-    <lastBuildDate>Sat, 05 Nov 2016 18:25:22 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 05 Nov 2016 19:44:32 +0530</lastBuildDate>
     
 	<atom:link href="http://deansallinen.ca/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BCvotes.info</title>
+      <link>http://deansallinen.ca/portfolio/bc-votes-info/</link>
+      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
+      
+      <guid>http://deansallinen.ca/portfolio/bc-votes-info/</guid>
+      <description>&lt;p&gt;A website to help citizens find their local candidates and compare party platforms in the
+BC Provincial Election.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>The Last Skytrain</title>
@@ -18,7 +29,7 @@
       <pubDate>Sat, 05 Nov 2016 18:25:22 +0530</pubDate>
       
       <guid>http://deansallinen.ca/portfolio/the-last-skytrain/</guid>
-      <description>&lt;p&gt;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+      <description>&lt;p&gt;A mobile website to simplify the late night train finding experience by rethinking data visualization.
 &lt;/p&gt;</description>
     </item>
     
@@ -28,19 +39,17 @@
       <pubDate>Sat, 05 Nov 2016 19:41:01 +0530</pubDate>
       
       <guid>http://deansallinen.ca/portfolio/ferry-tracker/</guid>
-      <description>&lt;p&gt;When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
+      <description>&lt;p&gt;An Android app to view the BC Ferries schedule, follow sailings, and be notified about schedule changes.
 &lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>BCvotes.info</title>
-      <link>http://deansallinen.ca/portfolio/bc-votes-info/</link>
-      <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
+      <title>CSS Grid Layout Practice</title>
+      <link>http://deansallinen.ca/experiments/gridlayout-figma-logo/</link>
+      <pubDate>Fri, 14 Apr 2017 19:04:56 -0700</pubDate>
       
-      <guid>http://deansallinen.ca/portfolio/bc-votes-info/</guid>
-      <description>&lt;p&gt;A website to help citizens find their candidates and compare their platforms in the
-BC Provincial Election.
-&lt;/p&gt;</description>
+      <guid>http://deansallinen.ca/experiments/gridlayout-figma-logo/</guid>
+      <description>See the Pen Grid Layout Figma Logo  by Dean (@deza604) on CodePen.</description>
     </item>
     
     <item>
@@ -51,7 +60,7 @@ BC Provincial Election.
       <guid>http://deansallinen.ca/contact/</guid>
       <description>Whether it&amp;rsquo;s feedback on one of my projects or an idea you want to collaborate on, I would love to hear from you!
 I usually respond to email within a day, and I check social media around once a week. Gotta stay productive!
-Recruiting? I&amp;rsquo;m currently looking for internships or Junior UX/UI roles to improve my skills and tackle new challenges.
+Are you hiring? I&amp;rsquo;m currently looking for internships or Junior UX/UI roles to improve my skills and tackle new challenges.
 Send me an email if you might be interested, and we can arrange a time to chat!</description>
     </item>
     
@@ -61,8 +70,10 @@ Send me an email if you might be interested, and we can arrange a time to chat!<
       <pubDate>Sat, 05 Nov 2016 21:05:33 +0530</pubDate>
       
       <guid>http://deansallinen.ca/about/</guid>
-      <description>An sincerity so extremity he additions. Her yet there truth merit. Mrs all projecting favourable now unpleasing. Son law garden chatty temper. Oh children provided to mr elegance marriage strongly. Off can admiration prosperous now devonshire diminution law.
-Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched. Put hearing cottage she norland letters equally prepare too.</description>
+      <description>I am a designer from Vancouver BC currently focused on User Experience and User Interface.
+I come from an academic background in Psychology. Studying human behaviour has given me invaluable insights, along with research and interviewing skills which I use in my design process.
+My work history spans industries and job titles and I see my varied experience as a benefit when designing for end users.
+When I&amp;rsquo;m not working on my design projects I enjoy learning new songs on guitar, discovering new Celiac friendly foods, and playing with my adopted rabbit Max.</description>
     </item>
     
   </channel>
