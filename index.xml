@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>BCvotes.info</title>
+      <title>BCVotes.info</title>
       <link>http://deansallinen.ca/portfolio/bc-votes-info/</link>
       <pubDate>Sat, 05 Nov 2016 19:44:32 +0530</pubDate>
       
@@ -49,7 +49,10 @@ BC Provincial Election.
       <pubDate>Fri, 14 Apr 2017 19:04:56 -0700</pubDate>
       
       <guid>http://deansallinen.ca/experiments/gridlayout-figma-logo/</guid>
-      <description>See the Pen Grid Layout Figma Logo  by Dean (@deza604) on CodePen.</description>
+      <description>The following is an exercise I did while teaching myself CSS Grid Layout with the help of Rachel Andrew&amp;rsquo;s Grid By Example.
+I thought the new Figma logo could be easily created using only HTML and CSS with Grid Layout.
+I worked on improving my eye for RGB colour blending by not using an eyedropper tool to get exact values.
+See the Pen Grid Layout Figma Logo  by Dean (@deza604) on CodePen.</description>
     </item>
     
     <item>
