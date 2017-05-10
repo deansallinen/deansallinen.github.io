@@ -48,7 +48,7 @@ figcaption {
   grid-template-areas:
   "bio"
   "bio-text";
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 
@@ -89,6 +89,10 @@ blockquote {
   color: #999;
   font-weight: 300;
   font-size: 20px;
+}
+
+ol li {
+  margin-bottom: 1em;
 }
 
 @media only screen and (min-width: 1300px) {

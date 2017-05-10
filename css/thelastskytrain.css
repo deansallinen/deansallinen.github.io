@@ -1,0 +1,163 @@
+/* menu styling */
+.small-navbar {
+  padding-top: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.btn-ghost {
+  color: white;
+  border-color: white;
+}
+
+.btn-ghost:hover, .btn-ghost:focus, .btn-ghost:active, .btn-ghost.active, .open .dropdown-toggle.btn-ghost {
+  color: #333;
+  background-color: white;
+  border-color: white;
+}
+
+.small-navbar-heading a {
+  color: white;
+}
+
+.small-navbar-heading a:hover {
+  color: white;
+}
+
+/*End menu styling*/
+
+/* Skytrain */
+
+.center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+h2 {
+  font-weight:bold;
+  padding-top:1em;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+p {
+  font-weight: lighter;
+}
+
+.content-column-content>p:first-of-type {
+  display: none;
+}
+
+header img {
+  max-width: 1000px;
+  width:auto;
+}
+
+.content-column-content {
+  /*padding-left: 1em;*/
+  /*padding-right: 0;*/
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.white-bar {
+  background-color: white;
+  height: 1.5em;
+  width: 100%;
+  position: absolute;
+  bottom: 0em;
+  z-index: -1;
+}
+
+header {
+  background: linear-gradient(#009AC9, #005CA9);
+  position: relative;
+}
+
+header h1, header h6 {
+  padding-left: 2rem;
+}
+
+header #title {
+  color: white;
+  text-shadow: 2px 2px rgba(51, 51, 51, 0.38);
+}
+
+header h6 {
+  color: #FFD202;
+  text-transform: uppercase;
+  font-weight: lighter;
+  text-shadow: 1px 1px rgba(51, 51, 51, 0.38);
+  letter-spacing: .5em;
+  padding-top: 4rem;
+}
+
+@media only screen and (min-width: 768px) {
+  header {
+    /*margin-left: -35px;*/
+  }
+  header h1, header h6 {
+    padding-left: 6rem;
+  }
+
+  .small-navbar {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+  .white-bar {
+    height: 3em;
+  }
+  .two-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .white-bar {
+    height: 4em;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .white-bar {
+    height: 4em;
+  }
+  header h1, header h6 {
+    padding-left: 20rem;
+  }
+
+  .small-navbar {
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+@media only screen and (min-width: 1400px) {
+  .white-bar {
+    height: 5em;
+  }
+
+  header h1, header h6 {
+    padding-left: 30rem;
+  }
+
+  .small-navbar {
+    margin-left: 30rem;
+    margin-right: 30rem;
+}
+}
+
+.content-column-content>p:first-of-type {
+  display: none;
+}
+
+#logos {
+  grid-gap: 2em;
+}
+
+
+/* End Skytrain */
