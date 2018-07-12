@@ -1,62 +1,70 @@
 {
   "assetsByChunkName": {
     "component---src-pages-about-index-js": [
-      "component---src-pages-about-index-js-e485e7f7e7f7aa9bab74.js",
-      "component---src-pages-about-index-js-e485e7f7e7f7aa9bab74.js.map"
+      "component---src-pages-about-index-js-99d3ee76052fd82475b1.js",
+      "component---src-pages-about-index-js-99d3ee76052fd82475b1.js.map"
+    ],
+    "path---projects-2": [
+      "path---projects-2-8384722e3b8f1017cd52.js",
+      "path---projects-2-8384722e3b8f1017cd52.js.map"
+    ],
+    "path---projects-mailroom": [
+      "path---projects-mailroom-0ca31cbc6f71a062f4c7.js",
+      "path---projects-mailroom-0ca31cbc6f71a062f4c7.js.map"
     ],
     "component---src-pages-index-js": [
-      "component---src-pages-index-js-9c51107ef25327bf4b68.js",
-      "component---src-pages-index-js-9c51107ef25327bf4b68.js.map"
-    ],
-    "component---src-pages-projects-thelastskytrain-js": [
-      "component---src-pages-projects-thelastskytrain-js-7f94ac4b5aa0c4978a48.js",
-      "component---src-pages-projects-thelastskytrain-js-7f94ac4b5aa0c4978a48.js.map"
+      "component---src-pages-index-js-9202ca11439dc7248389.js",
+      "component---src-pages-index-js-9202ca11439dc7248389.js.map"
     ],
     "path---": [
       "path----f56a5fe1fa6bfafbe0e9.js",
       "path----f56a5fe1fa6bfafbe0e9.js.map"
     ],
-    "path---projects-bcvotes": [
-      "path---projects-bcvotes-a0e39f21c11f6a62c5ab.js",
-      "path---projects-bcvotes-a0e39f21c11f6a62c5ab.js.map"
-    ],
     "component---src-layouts-index-js": [
-      "component---src-layouts-index-js-9899784c6c4215170af3.js",
-      "component---src-layouts-index-js-9899784c6c4215170af3.js.map"
+      "component---src-layouts-index-js-6ce1083788fad8078558.js",
+      "component---src-layouts-index-js-6ce1083788fad8078558.js.map"
+    ],
+    "component---src-templates-blog-template-js": [
+      "component---src-templates-blog-template-js-580e315ea23c55a6f93d.js",
+      "component---src-templates-blog-template-js-580e315ea23c55a6f93d.js.map"
     ],
     "path---index": [
-      "path---index-a0e39f21c11f6a62c5ab.js",
-      "path---index-a0e39f21c11f6a62c5ab.js.map"
+      "path---index-b3eb8ca1205f0d199730.js",
+      "path---index-b3eb8ca1205f0d199730.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
     ],
+    "path---projects-brincao": [
+      "path---projects-brincao-ef60fc6ec9f23443e79a.js",
+      "path---projects-brincao-ef60fc6ec9f23443e79a.js.map"
+    ],
     "commons": [
       "commons-afb5782224ac01f1fa03.js",
       "commons-afb5782224ac01f1fa03.js.map"
+    ],
+    "path---projects-ferrytracker": [
+      "path---projects-ferrytracker-f3058c72345f0a120794.js",
+      "path---projects-ferrytracker-f3058c72345f0a120794.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
       "path---404-html-a0e39f21c11f6a62c5ab.js.map"
     ],
-    "path---projects-thelastskytrain": [
-      "path---projects-thelastskytrain-a0e39f21c11f6a62c5ab.js",
-      "path---projects-thelastskytrain-a0e39f21c11f6a62c5ab.js.map"
+    "path---projects-1": [
+      "path---projects-1-1d96afabbea686e22f20.js",
+      "path---projects-1-1d96afabbea686e22f20.js.map"
     ],
     "app": [
-      "app-814315269e586e942dfb.js",
+      "app-1f3f3387c167ee525896.js",
       "build-js-styles.css",
-      "app-814315269e586e942dfb.js.map",
+      "app-1f3f3387c167ee525896.js.map",
       "build-js-styles.css.map"
     ],
     "path---404": [
       "path---404-a0e39f21c11f6a62c5ab.js",
       "path---404-a0e39f21c11f6a62c5ab.js.map"
-    ],
-    "component---src-pages-projects-bcvotes-js": [
-      "component---src-pages-projects-bcvotes-js-53578170dcbc0aa2432e.js",
-      "component---src-pages-projects-bcvotes-js-53578170dcbc0aa2432e.js.map"
     ],
     "path---about": [
       "path---about-a0e39f21c11f6a62c5ab.js",
