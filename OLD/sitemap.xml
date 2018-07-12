@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://deansallinen.ca/portfolio/bc-votes-info/</loc>
+    <lastmod>2016-11-05T19:44:32+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/portfolio/the-last-skytrain/</loc>
+    <lastmod>2016-11-05T18:25:22+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/portfolio/ferry-tracker/</loc>
+    <lastmod>2016-11-05T19:41:01+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/experiments/gridlayout-figma-logo/</loc>
+    <lastmod>2017-04-14T19:04:56-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/contact/</loc>
+    <lastmod>2016-11-06T13:00:25+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/about/</loc>
+    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/</loc>
+    <lastmod>2016-11-05T19:44:32+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/experiments/</loc>
+    <lastmod>2017-04-14T19:04:56-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/portfolio/</loc>
+    <lastmod>2016-11-05T19:44:32+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://deansallinen.ca/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
