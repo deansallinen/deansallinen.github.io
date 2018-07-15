@@ -1,5 +1,5 @@
 ---
-path: "/projects/2"
+path: "/projects/the-last-skytrain"
 date: "2017-03"
 title: "The Last Skytrain"
 ---

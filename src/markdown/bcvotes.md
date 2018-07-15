@@ -1,5 +1,5 @@
 ---
-path: "/projects/1"
+path: "/projects/bc-votes"
 date: "2017-05"
 title: "BC Votes"
 ---
