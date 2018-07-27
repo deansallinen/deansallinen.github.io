@@ -4,8 +4,6 @@ date: "2018-07"
 title: "Interoffice Mailroom Webapp"
 ---
 
-# Interoffice Mailroom Webapp
-
 ## Overview
 
 This app intends to solve a client's problem with interoffice mail. Employees will fill out address information for their letters and parcels and our app will generate a QR code which they print and attach to their mail. When the mailroom receives this letter/parcel they can then scan the QR code which will query the database for the relevant address information. The mailroom can then weigh the package, decide on the correct carrier and shipping methodology, generate the shipping label and ship the package.
@@ -22,7 +20,7 @@ Run `$ git init` and `$ git add -A` to add the beginnings of our app to the git 
 
 Okay lets test our express installation. Run `$ npm start` and open up a browser to http://localhost:3000 where you should see the following image. This means the installation was successful.
 
-![screenshot of express default page](/screenshots/000.png)
+![screenshot of express default page](../img/mailroom/screenshots/000.png)
 
 ## Database
 
@@ -508,11 +506,11 @@ Here's what `index.html` should look like:
 
 Now open http://localhost:3000 and try it out!
 
-![screenshot of index](/screenshots/001.png)
+![screenshot of index](../img/mailroom/screenshots/001.png)
 
 So what's happening here is when you type your User ID in the text field and hit the submit button we use the POST route we made earlier to create a new record in our database.
 
-![screenshot of barcode result](/screenshots/002.png)
+![screenshot of barcode result](../img/mailroom/screenshots/002.png)
 
 As we can see by the random string of numbers and letters we receive back, we are successfully viewing the barcode of our created entry.
 
@@ -522,11 +520,11 @@ We will also add any remaining fields to the routes.
 
 Now our webpage looks like this! (I also just learned how to take nicer screenshots of the selected window)
 
-![screenshot of user view](/screenshots/004.png)
+![screenshot of user view](../img/mailroom/screenshots/004.png)
 
 And our fields are nicely populating in the database.
 
-![screenshot of JSON from database](/screenshots/005.png)
+![screenshot of JSON from database](../img/mailroom/screenshots/005.png)
 
 ### Mailroom View
 
@@ -557,12 +555,12 @@ Lets create a new folder and HTML file `$ touch mailroom/index.html` and open it
 
 Now navigate to http://localhost:3000/mailroom/ and see that it appears!
 
-![screenshot of mailroom view](/screenshots/006.png)
+![screenshot of mailroom view](../img/mailroom/screenshots/006.png)
 
 If we enter a barcode from our database and hit submit...
 
 Uh oh.
-![screenshot of mailroom view](/screenshots/007.png)
+![screenshot of mailroom view](../img/mailroom/screenshots/007.png)
 
 We get back an array of all our parcels. Not what we're looking for. If we look in the address bar we can see why this is happening: the barcode is being sent to the /api/v1/parcels route as a query parameter instead of using the /api/v1/:barcode route we defined earlier.
 
@@ -792,7 +790,7 @@ as will our Select options:
 
 Now if we were to check in React Developer Tools (a Chrome addon) we should see all our state values populating correctly
 
-![screenshot of React Developer Tools](/screenshots/009.png)
+![screenshot of React Developer Tools](../img/mailroom/screenshots/009.png)
 
 Now lets change the form behaviour:
 
@@ -856,7 +854,7 @@ now restart the server `$ npm start` and try the request from the client again.
 
 We should see a "Success!" message in our console, and our barcode in our component's state!
 
-![screenshot of React Developer Tools - success](/screenshots/010.png)
+![screenshot of React Developer Tools - success](../img/mailroom/screenshots/010.png)
 
 ### The QR Code
 
@@ -960,7 +958,7 @@ export default class LabelList extends Component {
 
 then `import LabelList from '../components/labelList';` and add `<LabelList />` under the form in the mailroom view.
 
-![screenshot of mailroom barcode list](/screenshots/011.png)
+![screenshot of mailroom barcode list](../img/mailroom/screenshots/011.png)
 
 Now it will be easy to grab a barcode to test.
 

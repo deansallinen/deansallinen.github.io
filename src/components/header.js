@@ -8,7 +8,7 @@ const ListLink = props => (
       marginRight: `1rem`,
     }}
   >
-    <Link to={props.to} style={{ textDecoration: 'none', color: '#eee' }}>
+    <Link to={props.to} style={{ textDecoration: 'none', color: '#333' }}>
       {props.children}
     </Link>
   </li>
@@ -17,7 +17,6 @@ const ListLink = props => (
 const Header = ({ siteTitle }) => (
   <div
     style={{
-      background: 'maroon',
       marginBottom: '1.45rem',
     }}
   >
@@ -32,7 +31,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: '#eee',
+            color: '#333',
             textDecoration: 'none',
           }}
         >
