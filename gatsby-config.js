@@ -13,7 +13,8 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 500,
+              maxWidth: 800,
+              showCaptions: true,
             },
           },
         ],
@@ -29,8 +30,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `img`,
-        path: `${__dirname}/src/img/`,
+        name: 'img',
+        path: `${__dirname}/src/img`,
       },
     },
   ],

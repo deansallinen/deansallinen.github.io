@@ -710,3 +710,7 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+figcaption {
+  text-align: center;
+}

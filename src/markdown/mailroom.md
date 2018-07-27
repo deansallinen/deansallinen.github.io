@@ -6,27 +6,47 @@ title: "Interoffice Mailroom Webapp"
 
 ## Overview
 
-This app intends to solve a client's problem with interoffice mail. Employees will fill out address information for their letters and parcels and our app will generate a QR code which they print and attach to their mail. When the mailroom receives this letter/parcel they can then scan the QR code which will query the database for the relevant address information. The mailroom can then weigh the package, decide on the correct carrier and shipping methodology, generate the shipping label and ship the package.
+This post is written in the form of a tutorial. The target audience is my personal friend who has basic Javascript experience and wanted to learn how to build a CRUD app with a REST API. I documented my process so he could follow along.
+
+## Introduction
+
+This app intends to solve a client's problem with interoffice mail. In their current system there are multiple paper forms and an elaborate filing system required for each article of mail sent out from the office. This simple webapp is meant to be the beginning of a replacement paperless system for that office.
+
+## Ideation
+
+Employees will fill out a simple form with the address information for their letters and parcels and our app will generate a QR code which they will print and physically attach to their mail.
+
+When the mailroom receives this letter/parcel they will then scan the QR code which will query the database for the relevant address information.
+
+The mailroom can then weigh the package, update the record with measurements, decide on the correct carrier and shipping methodology, generate the shipping label using all the data, and finally ship the package while sending a message to the sender their mail has been shipped.
 
 ## Setup
 
-We'll start by creating a new directory on the command line with `$ mkdir mailroom` and run `$ npm install express-generator -g` to install the tool that will allow us to skeleton out our app quickly.
+We'll start by creating a new directory using the command line with `$ mkdir mailroom` and run `$ npm install express-generator -g` to install the tool that will allow us to skeleton out our app quickly.
 
-Run `$ express --no-view --git --force` to skeleton an app with no templating engine (because we plan on using React) as well as an empty .gitignore file and we add the force flag because the directory currently contains this markdown file.
+Run `$ express --no-view --git --force` to skeleton an app with no templating engine (because we plan on using React) as well as an empty .gitignore file. We add the force flag because the directory currently contains this README markdown file.
 
-Now we can begin installing packages for our app. First run `$ npm install` to install the packages required by express. Now would also be a good time to initialize a git repository.
+Now we can begin installing packages for our app. First run `$ npm install` to install the packages required by express.
 
-Run `$ git init` and `$ git add -A` to add the beginnings of our app to the git repository, now make the first commit with `$ git commit -m "initialize repo"`. Now our app is under version control and if we make a mistake adding new features, we can easily roll back to a time when our app worked!
+Now would also be a good time to initialize a git repository. Run `$ git init` and `$ git add -A` to add the beginnings of our app to the git repository, and make the first commit with `$ git commit -m "initialize repo"`. Now our app is under version control and if we make a mistake adding new features, we can easily roll back to a time when our app worked!
 
-Okay lets test our express installation. Run `$ npm start` and open up a browser to http://localhost:3000 where you should see the following image. This means the installation was successful.
+Okay, lets test our express installation. Run `$ npm start` and open up a browser to http://localhost:3000 where you should see the following image. This means the installation was successful:
 
 ![screenshot of express default page](../img/mailroom/screenshots/000.png)
 
 ## Database
 
-Let's set up the database. First, stop the server with `CTRL-C`. Since we will be using Sqlite for our database we can run `$ npm install sqlite bluebird --save`. I've chosen to use sqlite instead of sqlite3 as this lets us use promises instead of callbacks to access the database. Also installed bluebird as this seems to be the consensus over ES6 promises. Not sure I like that. But lets get something working and come back to that.
+Let's set up the database. First, stop the server with `CTRL-C` and run `$ npm install sqlite bluebird --save`.
 
-Create a folder for migrations, which will be useful going forward when we want to modify the database schema `$ mkdir migrations && cd migrations`. Lets create our first migration `$ touch 001-init.sql` and write some SQL.
+We will be using Sqlite for our database in this project as it can be run with minimal setup. I've also chosen to use the `sqlite` package instead of `sqlite3` as this lets us use promises instead of callbacks to access the database. This is a more modern syntax and, in my opinion, easier to read and understand what's going on. Also, we installed `bluebird` to handle promises. Though not really necessary for this scale of project, it was something I wanted to learn.
+
+Create a folder for migrations, which will be useful going forward when we want to modify the database schema.
+
+```
+$ mkdir migrations && cd migrations
+```
+
+Lets create our first migration `$ touch 001-init.sql` and write some SQL.
 
 ```sql
 -- Up
@@ -70,7 +90,7 @@ VALUES
 DROP TABLE parcels;
 ```
 
-Now to start we'll add our database connection in `app.js` for quicker prototyping and refactor it later:
+Now we'll add our database connection in `app.js` (we can refactor it into a connection file later)
 
 ```javascript
 const Promise = require('bluebird')
@@ -80,17 +100,19 @@ const dbPromise = Promise.resolve()
   .then(db => db.migrate({ force: 'last' }))
 ```
 
-Which will create a database file in our root directory (if it doesn't already exist), add some test data, open a connection, and use the latest migration to ensure our database is using the newest schema during development.
+This will create a database file in our root directory (if it doesn't already exist), add some test data, open a connection, and use the latest migration to ensure our database is using the newest schema during development.
 
 ## Writing Tests
 
-For running tests we will install Mocha, Chai, and ChaiHTTP.
+We're going to write some tests to ensure our REST endpoints work as expected. For running tests we will install Mocha, Chai, and ChaiHTTP. Let's create a directory to keep our tests `$ mkdir test` then install the test suite:
 
-Run `$ npm install mocha -g && npm install mocha chai chai-http --save-dev` then `$ mkdir test`
+```
+$ npm install mocha -g && npm install mocha chai chai-http --save-dev
+```
 
 ## Routing
 
-Lets start by creating a test file with `$ touch test/routes.spec.js` where we will add the tests for our API routes. First include the above libraries and tell Chai to use the HTTP module.
+Lets start by creating a test file with `$ touch test/routes.spec.js` where we will add the tests for our API routes. First include the correct libraries and tell Chai to use the HTTP module.
 
 ```javascript
 const chai = require('chai')
@@ -103,7 +125,7 @@ chai.use(chaiHTTP)
 
 ### GET
 
-Now we can describe our first test. Let's test that when we hit the `/api/v1/parcels` URL we receive an array of all parcels in the database.
+Now we can describe our first test. Let's ensure that when we hit the `/api/v1/parcels` URL we receive an array of all parcels in the database.
 
 ```javascript
 describe('API Routes', function() {
@@ -149,7 +171,7 @@ GET /api/v1/parcels 200 5.857 ms - 11
       at process._tickCallback (internal/process/next_tick.js:152:19)
 ```
 
-It's saying that it isn't receiving json back from the server, so let's correct that by first opening `app.js` and adding
+It's saying that we aren't receiving json back from the server, so let's correct that by first opening `app.js` and adding
 
 ```javascript
 // Routes
@@ -164,17 +186,17 @@ app.get('/api/v1/parcels', async (req, res, next) => {
 })
 ```
 
-So now when our client hits the '/api/v1/parcels' route the server opens a connection to the database, selects all parcels from our parcels table, and sends the result back to the client.
+So now when our client hits the `/api/v1/parcels` route the server opens a connection to the database, selects all parcels from our parcels table, and sends the result back to the client.
 
 ### POST
 
-Before we write the code that lets us add a new parcel, we need some helpers. Lets run `$ npm install uuid -s` and in `app.js` add
+Before we write the code that lets us add a new parcel, we need some helpers for generating the unique barcodes. Lets run `$ npm install uuid -s` and in `app.js` add
 
 ```javascript
 const uuidv4 = require('uuid/v4')
 ```
 
-Lets write another test, inside the same 'API Routes' function block just underneath the 'GET /api/v1/parcels' test, this time for posting a new parcel to the server:
+Lets write another test, inside the same 'API Routes' function block just underneath the `GET /api/v1/parcels` test, this time for posting a new parcel to the server:
 
 ```javascript
 describe('POST /api/v1/parcels', function() {
@@ -202,7 +224,7 @@ describe('POST /api/v1/parcels', function() {
     });
 ```
 
-Notice how we don't have every field? When we are creating a new parcel, this is the data the user will enter. When the mailroom later updates the parcel with the shipping information and the package dimensions, they will update this record.
+Notice how we don't have every field we added to our database? When we are creating a new parcel, this is the data the user will enter. When the mailroom later updates the parcel with the shipping information and the package dimensions they will update this record with the missing information.
 
 And again we go into `app.js` to add a route:
 
@@ -263,9 +285,13 @@ app.post('/api/v1/parcels', async (req, res, next) => {
 })
 ```
 
-Instead of sending an array of values as the payload we can send an object with key:value pairs. Make sure to include the `$` in front of the key otherwise sqlite won't recognize it as a placeholder! (multiple hours spent trying to figure out why this wasn't working...)
+Here when a client hits the `/api/v1/parcels` route with a POST request and supplies address information, it's saved in the database as a new record.
 
-Here when a client hits the `/api/v1/parcels` route with a POST request and supplies address information that is saved in the database as a new record. Notice how we are using `uuidv4()` to generate a unique code for each record. We return the uuid as the response, the idea being we will use this to generate the barcode in the front-end. We also use `new Date().toISOString()` to add a timestamp of when that record was created.
+Notice how we are using `uuidv4()` to generate a unique code for each record. We return the uuid as the response, the idea here is we will use this string to generate the barcode in the front-end. We also use `new Date().toISOString()` to add a timestamp of when that record was created.
+
+Instead of sending an array of values as the payload we can send an object with key:value pairs.
+
+**NOTE:** Make sure to include the `$` in front of the key otherwise sqlite won't recognize it as a placeholder! (multiple hours spent trying to figure out why this wasn't working...)
 
 If you're wondering (like I did) why it seems like the POST request is updating and not inserting new values each time the test is run, it's because we added `{ force: 'last' }` to re-run the latest migration every time we restart our server. So even though it looks like the barcode and creation_date are changing in place, it's really:
 
@@ -273,11 +299,11 @@ If you're wondering (like I did) why it seems like the POST request is updating 
 2.  Inserting the two sample rows in our 001-init.sql file
 3.  POSTing the new row with the new data
 
+Keep that in mind!
+
 ### PUT
 
-When a package is received by the mailroom IRL they will scan the barcode and pull up the parcel in the database to add shipping information and package dimensions.
-
-So before we can make updates to parcels, we need to be able to GET individual parcels by their barcode.
+When a package is received by the mailroom in real life they will scan the barcode and pull up the database record to add shipping information and package dimensions. But before we can make updates to parcels we need to be able to GET individual parcels by their barcode.
 
 In `routes.spec.js` we can add a new test for the new route we are about to create:
 
@@ -297,9 +323,9 @@ describe('GET /api/v1/parcels/:barcode', function() {
 })
 ```
 
-Here we are using a barcode from one of our sample rows in the 001-init.sql file as these are static and easy to reference.
+Here we are using a barcode from one of our sample rows in the `001-init.sql` file as these are static and easy to reference.
 
-Run the test with `$ mocha` and see that it fails with a 404. Now we need to write the route. In app.js under our other routes add:
+Run the test with `$ mocha` and see that it fails with a 404. Now we need to write the route. In `app.js` under our other routes add:
 
 ```javascript
 app.get('/api/v1/parcels/:barcode', async (req, res, next) => {
@@ -316,7 +342,9 @@ app.get('/api/v1/parcels/:barcode', async (req, res, next) => {
 })
 ```
 
-Rerun the test and voila! 3 passing tests. You can even verify in the browser by entering http://localhost:3000/api/v1/parcels/f34c6658-818b-11e8-adc0-fa7ae01bbebc and seeing our test data.
+Rerun the test and... voila! 3 passing tests.
+
+You can even verify in the browser by entering http://localhost:3000/api/v1/parcels/f34c6658-818b-11e8-adc0-fa7ae01bbebc to see our test data.
 
 Now that the mailroom can access a single record, we need to be able to update that record. Let's write a test. Because sqlite doesn't return the inserted row as an object, it only returns the number of rows modified, we'll test that the number of modified rows is non-zero:
 
@@ -344,7 +372,7 @@ describe('PUT /api/v1/parcels/:barcode', function() {
 })
 ```
 
-and it fails. Good. Now the route. This looks a little different than the previous route we made:
+Run the test and see that it fails. That's a good sign. Now we write the route. This looks similar to the previous route we made:
 
 ```javascript
 app.put('/api/v1/parcels/:barcode', async (req, res, next) => {
@@ -381,7 +409,7 @@ app.put('/api/v1/parcels/:barcode', async (req, res, next) => {
 
 ### DELETE
 
-Okay, now we have the ability to CREATE, READ, and UPDATE. Our envisioned use case doesn't have users deleting records, I think we would like to maintain old records for archival purposes. However, for completeness we'll add a simple DELETE route.
+Okay, now we have the ability to CREATE, READ, and UPDATE. Our envisioned use case doesn't require users deleting records, in fact I think we would like to maintain old records for archival purposes. However, for completeness (and GDPR compliance!) we'll add a simple DELETE route.
 
 Let's first add another sample into our `001-init.sql` file with a static barcode. Add this ABOVE the previous insert, as we will see why in a second.
 
@@ -420,7 +448,7 @@ describe('DELETE /api/v1/parcels/:barcode', function() {
 })
 ```
 
-Here we are sending a request to the server to delete the parcel with "I SHOULD BE DELETED" as an address (note the 'bb' at the end of the barcode instead of the 'bc').
+Here we are sending a request to the server to delete the parcel with "I SHOULD BE DELETED" as an address (note the 'bb' at the end of my barcode instead of the 'bc').
 
 The second request to the server is to get back the full list of parcels, and if the delete works as intended, the first parcel (in position [0]) should now be our parcel with barcode ending in 'bc'.
 
@@ -441,7 +469,7 @@ app.delete('/api/v1/parcels/:barcode', async (req, res, next) => {
 })
 ```
 
-Run the tests...
+Run the tests again...
 
 ```
 deans-Mac-Pro:mailroom dean$ mocha
@@ -473,9 +501,9 @@ And it works! Now we have a fully functional basic CRUD API.
 
 ## Front End
 
-I would like to have the front end built with React to take advantage of component architecture, however to quickly test that everything works we can build a simple HTML page.
+I want the front end built with React to take advantage of component architecture, however to quickly test that everything works let's start with a simple HTML page.
 
-We should already have a page called `index.html` in our ./public folder. Let's open that up and add a basic form for our users.
+We should already have a page called `index.html` in our `./public` folder. Let's open that up and add a basic form for our users.
 
 ### User view
 
@@ -518,9 +546,11 @@ At this point we will add additional fields from our database.
 
 We will also add any remaining fields to the routes.
 
-Now our webpage looks like this! (I also just learned how to take nicer screenshots of the selected window)
+Now our webpage looks like this!
 
 ![screenshot of user view](../img/mailroom/screenshots/004.png)
+
+(I also just learned how to take nicer screenshots of the selected window)
 
 And our fields are nicely populating in the database.
 
@@ -528,9 +558,9 @@ And our fields are nicely populating in the database.
 
 ### Mailroom View
 
-We want our mailroom to be able to nput a barcode, view a record, add additional information, and save it to the database.
+We want our mailroom to be able to input a barcode, view a record, add additional information, and save it to the database.
 
-Lets create a new folder and HTML file `$ touch mailroom/index.html` and open it up, add the following:
+Lets create a new folder and HTML file `$ touch mailroom/index.html` and open it up to add the following:
 
 ```html
 <html>
@@ -562,9 +592,14 @@ If we enter a barcode from our database and hit submit...
 Uh oh.
 ![screenshot of mailroom view](../img/mailroom/screenshots/007.png)
 
-We get back an array of all our parcels. Not what we're looking for. If we look in the address bar we can see why this is happening: the barcode is being sent to the /api/v1/parcels route as a query parameter instead of using the /api/v1/:barcode route we defined earlier.
+We get back an array of all our parcels. Not what we're looking for. If we look in the address bar we can see why this is happening: the barcode is being sent to the `/api/v1/parcels` route as a query parameter instead of using the `/api/v1/:barcode` route we defined earlier.
 
-Now we can decide to use the barcode as a query parameter and refactor our routes, or we can see if the form can submit to our /api/v1/:barcode route as a path variable. I'm sure one answer is better than the other for this scenario, but as our HTML form is presenting us with the query option by default we will try that first.
+Now we can decide to either
+
+* use the barcode as a query parameter and refactor our routes, or
+* we can see if the form can submit to our `/api/v1/:barcode` route as a path variable
+
+I'm not sure if there is a right answer as this design consideration seems to be subjective from the research I've done, but as our HTML form is presenting us with the query option by default we will go with that paradigm.
 
 We will change our route to the following which will show us a specific parcel when a barcode is supplied as a query parameter.
 
@@ -586,9 +621,19 @@ app.get('/api/v1/parcels', async (req, res, next) => {
 
 ### Adding React
 
-We are going to use React for our frontend framework to handle dynamic content changes, and because we're looking to have it rendered server-side we will also use nextjs.
+Now that we've tested with basic HTML we are going to add React as our frontend framework to easily handle dynamic content changes. Because we're looking to have the content rendered server-side we will also use Next.js.
 
-Let's make a client directory to handle our client-side code `$ mkdir client && cd client` then initialize a new package.json with `$ npm init -y` and install next with `$ npm install -s react react-dom next`
+Let's make a client directory to handle our client-side code
+
+```
+$ mkdir client && cd client
+```
+
+Then initialize a new package.json with `$ npm init -y` and install next with
+
+```
+$ npm install -s react react-dom next
+```
 
 If we add the following to our package.json
 
@@ -604,7 +649,9 @@ If we add the following to our package.json
 
 and create a pages directory with an index.js file
 
-`$ mkdir pages && touch pages/index.js`
+```
+$ mkdir pages && touch pages/index.js
+```
 
 now add a simple export
 
@@ -614,11 +661,11 @@ export default () => {
 }
 ```
 
-run `$ npm run dev` and open http://localhost:3030 (in my case)to see our message!
+run `$ npm run dev` and open http://localhost:3030 to see our message!
 
-Let's rewrite our two pages as components.
+Note: In my case, the default localhost:3000 was taken.
 
-Starting with a `users.js` in our pages folder
+Let's rewrite our two pages as components. Starting with a `users.js` in our pages folder
 
 ```javascript
 import React, { Component } from 'react'
@@ -691,7 +738,7 @@ export default class UserPage extends Component {
 
 Which will now be available at http://localhost:3030/user
 
-And make a new file for our mailroom at /pages/mailroom.js
+And make a new file for our mailroom at `/pages/mailroom.js`
 
 ```javascript
 const MailroomPage = () => {
@@ -792,7 +839,7 @@ Now if we were to check in React Developer Tools (a Chrome addon) we should see 
 
 ![screenshot of React Developer Tools](../img/mailroom/screenshots/009.png)
 
-Now lets change the form behaviour:
+Now lets change the form behaviour. The line
 
 ```javascript
 <form action="/api/v1/parcels" method="post">
@@ -804,9 +851,9 @@ changes to
 <form onSubmit={this.handleSubmit}>
 ```
 
-and we'll write a function to handle the POST request in Javascript.
+and we'll have to write a function to handle the POST request in Javascript.
 
-add to our constructor:
+Add the following to our constructor:
 `this.handleSubmit = this.handleSubmit.bind(this);`
 and create the function:
 
