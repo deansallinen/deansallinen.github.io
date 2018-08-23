@@ -1,0 +1,2 @@
+webpackJsonp([0x9a7510236a52],{333:function(t,a){t.exports={data:{markdownRemark:{html:"<p>Text coming soon!</p>",frontmatter:{date:"June 01, 2018",path:"/projects/ferrytracker",title:"Ferry Tracker",tags:""}}},pathContext:{}}}});
+//# sourceMappingURL=path---projects-ferrytracker-5c3e3811a7078ae7133d.js.map
