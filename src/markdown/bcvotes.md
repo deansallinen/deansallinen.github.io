@@ -2,6 +2,7 @@
 path: "/projects/bc-votes"
 date: "2017-05"
 title: "BC Votes"
+tags: ""
 ---
 
 ![mockup on laptop](../img/bcvotes/bcvotes-mockup1.png)

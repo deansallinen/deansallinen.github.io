@@ -1,6 +1,7 @@
 ---
 path: "/about"
 title: "About Me"
+tags: ""
 ---
 
 I am a front-end/UX developer from Vancouver, BC.

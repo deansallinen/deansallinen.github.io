@@ -22,6 +22,7 @@ const PostLink = ({ post }) => {
       <Link to={post.frontmatter.path} style={{ textDecoration: 'none' }}>
         <ProjectName>{post.frontmatter.title}</ProjectName>
       </Link>
+      <h6>{post.frontmatter.tags}</h6>
       <ProjectDate>{post.frontmatter.date}</ProjectDate>
     </ProjectWrapper>
   )

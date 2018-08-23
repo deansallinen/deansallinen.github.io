@@ -1,7 +1,8 @@
 ---
 path: "/projects/mailroom"
 date: "2018-07"
-title: "Interoffice Mailroom Webapp"
+title: "Mailroom"
+tags: 'Fullstack'
 ---
 
 ## Overview
