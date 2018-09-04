@@ -2,14 +2,15 @@
 path: "/projects/bc-votes"
 date: "2017-05"
 title: "BC Votes"
-tags: ""
+tags: ["UI", "HTML", "CSS"]
+toc: false
 ---
 
 ![mockup on laptop](../img/bcvotes/bcvotes-mockup1.png)
 
-## A project to compare BC political parties, display platforms, and find candidates.
+## A project to compare BC political parties, display party platforms, and find candidates.
 
-My role in this project was **design** and **front-end development**, and my friend @Rizwan did back-end and scraping.
+My role in this project was **design** and **front-end development** working closely with a back-end developer.
 
 ## Problem Space
 

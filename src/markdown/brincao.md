@@ -2,7 +2,8 @@
 path: "/projects/brincao"
 date: "2018-05"
 title: "Brincao"
-tags: ""
+tags: ["UX", "UI", "React",]
+toc: false
 ---
 
-Text coming soon!
+Redesigning a small business website with the goal of improving speed, usability, and mobile accessibility.

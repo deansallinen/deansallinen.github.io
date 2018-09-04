@@ -14,6 +14,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
+    <div style={{ backgroundColor: '#FFB7A0', height: '.1rem' }} />
     <Header siteTitle={data.site.siteMetadata.title} />
     <div
       style={{

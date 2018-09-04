@@ -7,21 +7,30 @@ export default function Template({
 }) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, headings } = markdownRemark
+
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
+    <div
+      className="blog-post-container"
+      style={{
+        display: 'grid',
+      }}
+    >
+      <div className="blog-post" style={{ maxWidth: '45rem' }}>
         <h1>{frontmatter.title}</h1>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
+      <div style={{ gridColumn: '2' }}>
+        <TOC headings={headings} />
+      </div>
     </div>
   )
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query BlogPostByPathTOC($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       headings {

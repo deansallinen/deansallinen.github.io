@@ -1,30 +1,80 @@
-import React from 'react'
+import React, { Children } from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import Tag from './Tag'
 
-const ProjectName = styled.h3`
-  color: #333;
-  font-weight: normal;
-`
+const ProjectName = props => (
+  <h3
+    style={{
+      color: '#333',
+      fontWeight: 'normal',
+      margin: '0',
+      borderBottom: '2px solid #ddd',
+    }}
+  >
+    {props.children}
+  </h3>
+)
 
-const ProjectDate = styled.h6`
-  color: #333;
-`
+const ProjectDate = props => (
+  <h6 style={{ color: '#333', margin: '0' }}>{props.children}</h6>
+)
 
-const ProjectWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+const ProjectHeader = props => (
+  <div
+    style={{
+      display: 'grid',
+    }}
+  >
+    {props.children}
+  </div>
+)
+
+const Project = props => (
+  <div
+    style={{
+      margin: '1rem 0',
+      padding: '1rem 0 ',
+      borderRadius: '.5rem',
+    }}
+  >
+    {props.children}
+  </div>
+)
+
+const Excerpt = props => (
+  <p style={{ margin: '1rem 0 0 0 ' }}>{props.children}</p>
+)
+
+const Tags = props => (
+  <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: '1rem' }}>
+    {props.children}
+  </div>
+)
 
 const PostLink = ({ post }) => {
   return (
-    <ProjectWrapper>
-      <Link to={post.frontmatter.path} style={{ textDecoration: 'none' }}>
-        <ProjectName>{post.frontmatter.title}</ProjectName>
-      </Link>
-      <h6>{post.frontmatter.tags}</h6>
-      <ProjectDate>{post.frontmatter.date}</ProjectDate>
-    </ProjectWrapper>
+    <Project>
+      <ProjectHeader>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Link to={post.frontmatter.path} style={{ textDecoration: 'none' }}>
+            <ProjectName>{post.frontmatter.title}</ProjectName>
+          </Link>
+          <ProjectDate>{post.frontmatter.date}</ProjectDate>
+        </div>
+        <Tags>
+          {post.frontmatter.tags.map(tag => <Tag key={tag}>{tag}</Tag>)}
+        </Tags>
+      </ProjectHeader>
+      <Excerpt>
+        {post.excerpt} <Link to={post.frontmatter.path}>More</Link>
+      </Excerpt>
+    </Project>
   )
 }
 

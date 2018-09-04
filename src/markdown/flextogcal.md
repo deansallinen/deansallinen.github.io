@@ -2,12 +2,11 @@
 path: "/projects/flextogcal"
 date: "2018-05"
 title: "Flex to Gcal"
-tags: ""
+tags: ["UX", "JavaScript"]
+toc: false
 ---
 
-## Overview
-
-This project began as a Google Apps Script to connect our company's inventory management calendar with a sharable Google calendar. As it was built out further, the limitations of using Google Apps Script outweighed the initial benefits and the project was rewritten in ES6 on a Node server.
+This project uses Javascript to connect a popular event-industry inventory management system with a sharable Google calendar using REST APIs in an attempt to improve calendar usability. Initially written in ES5 using the Google Apps Script platform, the project was rewritten in ES6 on a Node server when the limitations of using Google Apps Script outweighed the initial benefits.
 
 ## Problem
 

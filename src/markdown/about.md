@@ -1,16 +1,26 @@
 ---
 path: "/about"
 title: "About Me"
-tags: ""
+tags: []
+toc: false
 ---
 
-I am a front-end/UX developer from Vancouver, BC.
+Hi, I'm Dean. 👋
 
-My work history spans multiple industries and job titles and I see my varied experience as a benefit when designing for end users.
+My self-proclaimed title is always changing: these days I'm a **UX Developer**.
 
-I studied Psychology and Linguistics at SFU and learning about human behaviour has given me invaluable insights, along with the research and interviewing skills, which I use throughout my design process.
+Here's why:
 
-When I’m not working on these side projects I enjoy learning the guitar, discovering new Celiac friendly restaurants, and playing with my adopted rabbit Aria.
+* User-centered digital hospitality. I'm asking, "How can I make this a better experience for you?"
+* I love to code. I create with both Figma and React; the right tool for the job.
+* I have a sense of aesthetics, rhythm, and balance. Not trendy or flashy, but timeless and considerate.
+* I'm a data-driven problem solver, life-long learner, design and systems-thinker.
+
+My work history spans multiple industries and job titles and I draw on this when designing for end users. Every experience is valuable in it's own right.
+
+I studied Psychology and Linguistics at SFU and I use these research and interviewing skills throughout my design process.
+
+And in other news? I'm from Vancouver, BC. When I’m not working on my side projects I enjoy learning the guitar, discovering new gluten-free restaurants, hiking, camping and reading.
 
 #### Education
 
@@ -24,4 +34,8 @@ Whether it’s feedback on one of my projects or an idea you want to collaborate
 
 Send me an email if you are interested in what I do, and we can arrange a time to chat.
 
-You can find me also on:
+You can also find me on:
+
+* LinkedIn
+* Twitter
+* GitHub
