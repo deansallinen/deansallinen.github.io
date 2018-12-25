@@ -5,12 +5,16 @@
       "path---projects-flextogcal-d4409f8c6c695a7ba8d0.js.map"
     ],
     "path---projects-mailroom": [
-      "path---projects-mailroom-f1aea9bca1827d539acc.js",
-      "path---projects-mailroom-f1aea9bca1827d539acc.js.map"
+      "path---projects-mailroom-d3f8eda0fe9c1087d739.js",
+      "path---projects-mailroom-d3f8eda0fe9c1087d739.js.map"
     ],
     "component---src-pages-index-js": [
       "component---src-pages-index-js-f136e69d5d325feb1f12.js",
       "component---src-pages-index-js-f136e69d5d325feb1f12.js.map"
+    ],
+    "path---mobify": [
+      "path---mobify-3a0d6db5a6b6ed81e22d.js",
+      "path---mobify-3a0d6db5a6b6ed81e22d.js.map"
     ],
     "path---": [
       "path----a1f85b935d0d49e08051.js",
@@ -25,16 +29,16 @@
       "component---src-templates-blog-template-js-9e637b6b60ff3298ace5.js.map"
     ],
     "path---index": [
-      "path---index-6d3c30359aed42409e51.js",
-      "path---index-6d3c30359aed42409e51.js.map"
+      "path---index-98ffcdfdbb3fc68f53cb.js",
+      "path---index-98ffcdfdbb3fc68f53cb.js.map"
     ],
     "component---src-pages-404-js": [
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
       "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
     ],
     "path---projects-brincao": [
-      "path---projects-brincao-f468b99290283a16fb6b.js",
-      "path---projects-brincao-f468b99290283a16fb6b.js.map"
+      "path---projects-brincao-785b160c2dc39c162be9.js",
+      "path---projects-brincao-785b160c2dc39c162be9.js.map"
     ],
     "component---src-templates-blog-template-with-toc-js": [
       "component---src-templates-blog-template-with-toc-js-344f2b27f97a3f6d2906.js",
@@ -47,8 +51,8 @@
       "build-js-styles.css.map"
     ],
     "path---projects-ferrytracker": [
-      "path---projects-ferrytracker-36c2b699bec9d635ce46.js",
-      "path---projects-ferrytracker-36c2b699bec9d635ce46.js.map"
+      "path---projects-ferrytracker-a4a759f7e6cd6f8e9b11.js",
+      "path---projects-ferrytracker-a4a759f7e6cd6f8e9b11.js.map"
     ],
     "path---404-html": [
       "path---404-html-a0e39f21c11f6a62c5ab.js",
@@ -59,9 +63,9 @@
       "path---projects-the-last-skytrain-4ef1dd7d80bec0a17c4e.js.map"
     ],
     "app": [
-      "app-25896bf7c2892019ba26.js",
+      "app-474da9688ea7c4665ea7.js",
       "build-js-styles.css",
-      "app-25896bf7c2892019ba26.js.map",
+      "app-474da9688ea7c4665ea7.js.map",
       "build-js-styles.css.map"
     ],
     "path---projects-bc-votes": [
@@ -73,8 +77,8 @@
       "path---404-a0e39f21c11f6a62c5ab.js.map"
     ],
     "path---about": [
-      "path---about-792246ad172f1fbb1032.js",
-      "path---about-792246ad172f1fbb1032.js.map"
+      "path---about-322e9b3b97b616b84a4f.js",
+      "path---about-322e9b3b97b616b84a4f.js.map"
     ]
   }
 }
