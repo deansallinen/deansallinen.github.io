@@ -2,7 +2,7 @@
 path: "/projects/brincao"
 date: "2018-05"
 title: "Brincao"
-tags: ["UX", "UI", "React",]
+tags: ["UX", "UI", "React", "Gatsby"]
 toc: false
 ---
 

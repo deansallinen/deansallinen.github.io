@@ -7,11 +7,11 @@ toc: false
 
 Hi, I'm Dean. 👋
 
-My self-proclaimed title is always changing: these days I'm a **UX Developer**.
+When I grow up I want to be a **unicorn** 🦄
 
 Here's why:
 
-* User-centered digital hospitality. I'm asking, "How can I make this a better experience for you?"
+* User-centered. I'm asking, "How can I make this a better experience for you?"
 * I love to code. I create with both Figma and React; the right tool for the job.
 * I have a sense of aesthetics, rhythm, and balance. Not trendy or flashy, but timeless and considerate.
 * I'm a data-driven problem solver, life-long learner, design and systems-thinker.
@@ -36,6 +36,6 @@ Send me an email if you are interested in what I do, and we can arrange a time t
 
 You can also find me on:
 
-* LinkedIn
-* Twitter
-* GitHub
+* [LinkedIn](https://www.linkedin.com/in/dean-sallinen-39547a52/)
+* [Twitter](http://twitter.com/deansallinen)
+* [GitHub](https://www.github.com/deansallinen)

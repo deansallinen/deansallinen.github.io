@@ -6,9 +6,13 @@ tags: ['UX', 'Node', 'Express', 'SQL', 'React']
 toc: true
 ---
 
-This simple web app intends to solve a client's problem with interoffice mail. In their current system there are multiple paper forms and an elaborate filing system required for each article of mail sent out from the office. This simple webapp is meant to be a prototype for a paperless system in that office.
 
-This post is written in the form of a tutorial. The target audience is a personal friend who has basic Javascript experience and wanted to learn how to build a CRUD app with a REST API. I documented my process so he could follow along.
+**This post is written in the form of a tutorial.** 
+
+The target audience is a personal friend who has basic Javascript experience and wanted to learn how to build a CRUD app with a REST API. I documented my process so he could follow along.
+
+This simple web app intends to solve a client's problem with interoffice mail. In their current system there are multiple paper forms and an elaborate filing system required for each article of mail sent out from the office. This simple webapp is meant to be a prototype for a paperless system in that particular office.
+
 
 ## Ideation
 
