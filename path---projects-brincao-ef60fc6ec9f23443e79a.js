@@ -1,2 +1,0 @@
-webpackJsonp([0x94b2e40e5aef],{331:function(t,a){t.exports={data:{markdownRemark:{html:"",frontmatter:{date:"May 01, 2018",path:"/projects/brincao",title:"Brincao"}}},pathContext:{}}}});
-//# sourceMappingURL=path---projects-brincao-ef60fc6ec9f23443e79a.js.map

@@ -1,2 +1,0 @@
-webpackJsonp([27027048473407],{333:function(t,a){t.exports={data:{markdownRemark:{html:"",frontmatter:{date:"July 01, 2018",path:"/projects/mailroom",title:"Mailroom"}}},pathContext:{}}}});
-//# sourceMappingURL=path---projects-mailroom-0ca31cbc6f71a062f4c7.js.map
