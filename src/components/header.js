@@ -1,32 +1,23 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const handleClick = ev => {
-  ev.preventDefault()
-  const element = document.getElementById('nav')
-  element.classList.toggle('block')
-  element.classList.toggle('hidden')
-}
+  ev.preventDefault();
+  const element = document.getElementById('nav');
+  element.classList.toggle('block');
+  element.classList.toggle('hidden');
+};
 
 const Header = ({ siteTitle }) => (
-  <nav className="bg-teal">
+  <nav className="">
     <div className="flex flex-wrap items-center justify-between max-w-xl mx-auto p-4 md:p-8">
-      <Link to="/" className="flex items-center no-underline text-white">
-        <svg
-          className="fill-current h-8 mr-2 w-8"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" />
-        </svg>
+      <Link to="/" className="flex items-center no-underline text-grey-darkest">
         <span className="font-bold text-xl ">{siteTitle}</span>
       </Link>
 
       <button
-        className="block md:hidden border border-white flex items-center px-3 py-2 rounded text-white"
+        className="block md:hidden border border-grey-darkest flex items-center px-3 py-2 rounded text-grey-darkest"
         onClick={handleClick}
       >
         <svg
@@ -43,21 +34,21 @@ const Header = ({ siteTitle }) => (
         <div className="text-sm">
           <Link
             to="/"
-            className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline text-white"
+            className="block mt-4 md:inline-block md:mt-0 mr-6 no-underline text-grey-darkest"
           >
             Home
           </Link>
 
           <Link
             to="/about"
-            className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-white"
+            className="block md:inline-block mt-4 md:mt-0 mr-6 no-underline text-grey-darkest"
           >
             About
           </Link>
 
           <Link
             to="/contact"
-            className="block md:inline-block mt-4 md:mt-0 no-underline text-white"
+            className="block md:inline-block mt-4 md:mt-0 no-underline text-grey-darkest"
           >
             Contact
           </Link>
@@ -65,14 +56,14 @@ const Header = ({ siteTitle }) => (
       </div>
     </div>
   </nav>
-)
+);
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-}
+};
 
 Header.defaultProps = {
   siteTitle: ``,
-}
+};
 
-export default Header
+export default Header;
