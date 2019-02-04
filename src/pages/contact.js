@@ -10,7 +10,7 @@ const ContactPage = () => (
       keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
     />
 
-    <form className="mx-auto md:w-1/2">
+    <form className="mx-auto md:w-1/2" netlify>
       <p className="leading-loose mb-8">
         Here is an example of a form built using Tailwind. Click{' '}
         <a
