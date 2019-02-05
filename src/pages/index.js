@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -11,9 +11,10 @@ const IndexPage = ({
 }) => {
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => (
-      <div key={edge.node.id} post={edge.node}>
-        {edge.node.frontmatter.title}
+    .map(({ node }) => (
+      <div key={node.id}>
+        <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
+        <p>{node.frontmatter.tags}</p>
       </div>
     ));
 
