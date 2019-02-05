@@ -1,2 +1,0 @@
-webpackJsonp([0x94b2e40e5aef],{337:function(t,a){t.exports={data:{markdownRemark:{html:"<p>Redesigning a small business website with the goal of improving speed, usability, and mobile accessibility.</p>",headings:[],frontmatter:{date:"May 01, 2018",path:"/projects/brincao",title:"Brincao",tags:["UX","UI","React","Gatsby"],toc:!1}}},pathContext:{}}}});
-//# sourceMappingURL=path---projects-brincao-785b160c2dc39c162be9.js.map
