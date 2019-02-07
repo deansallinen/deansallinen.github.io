@@ -4,6 +4,7 @@ date: '2017-05'
 title: 'BC Votes'
 tags: ['UI', 'HTML', 'CSS']
 toc: false
+thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---
 
 ![mockup on laptop](../img/bcvotes/bcvotes-mockup1.png)

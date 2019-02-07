@@ -1,18 +1,17 @@
 ---
-path: "/projects/mailroom"
-date: "2018-07"
-title: "Mailroom"
+path: '/projects/mailroom'
+date: '2018-07'
+title: 'Mailroom'
 tags: ['UX', 'Node', 'Express', 'SQL', 'React']
 toc: true
+thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---
 
-
-**This post is written in the form of a tutorial.** 
+**This post is written in the form of a tutorial.**
 
 The target audience is a personal friend who has basic Javascript experience and wanted to learn how to build a CRUD app with a REST API. I documented my process so he could follow along.
 
 This simple web app intends to solve a client's problem with interoffice mail. In their current system there are multiple paper forms and an elaborate filing system required for each article of mail sent out from the office. This simple webapp is meant to be a prototype for a paperless system in that particular office.
-
 
 ## Ideation
 
@@ -95,11 +94,11 @@ DROP TABLE parcels;
 Now we'll add our database connection in `app.js` (we can refactor it into a connection file later)
 
 ```javascript
-const Promise = require('bluebird')
-const sqlite = require('sqlite')
+const Promise = require('bluebird');
+const sqlite = require('sqlite');
 const dbPromise = Promise.resolve()
   .then(() => sqlite.open('./mailroom.sqlite', { Promise }))
-  .then(db => db.migrate({ force: 'last' }))
+  .then(db => db.migrate({ force: 'last' }));
 ```
 
 This will create a database file in our root directory (if it doesn't already exist), add some test data, open a connection, and use the latest migration to ensure our database is using the newest schema during development.
@@ -117,12 +116,12 @@ $ npm install mocha -g && npm install mocha chai chai-http --save-dev
 Lets start by creating a test file with `$ touch test/routes.spec.js` where we will add the tests for our API routes. First include the correct libraries and tell Chai to use the HTTP module.
 
 ```javascript
-const chai = require('chai')
-const should = chai.should()
-const chaiHttp = require('chai-http')
-const server = require('../app')
+const chai = require('chai');
+const should = chai.should();
+const chaiHttp = require('chai-http');
+const server = require('../app');
 
-chai.use(chaiHTTP)
+chai.use(chaiHTTP);
 ```
 
 ### GET
@@ -137,14 +136,14 @@ describe('API Routes', function() {
         .request(server)
         .get('/api/v1/parcels')
         .end(function(err, res) {
-          res.should.have.status(200)
-          res.should.be.json
-          res.body.should.be.a('array')
-          done()
-        })
-    })
-  })
-})
+          res.should.have.status(200);
+          res.should.be.json;
+          res.body.should.be.a('array');
+          done();
+        });
+    });
+  });
+});
 ```
 
 Now if we run `$ mocha` on the command line to start our test we see the following error:
@@ -179,13 +178,13 @@ It's saying that we aren't receiving json back from the server, so let's correct
 // Routes
 app.get('/api/v1/parcels', async (req, res, next) => {
   try {
-    const db = await dbPromise
-    const parcels = await db.all('SELECT * FROM parcels')
-    res.send(parcels)
+    const db = await dbPromise;
+    const parcels = await db.all('SELECT * FROM parcels');
+    res.send(parcels);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 So now when our client hits the `/api/v1/parcels` route the server opens a connection to the database, selects all parcels from our parcels table, and sends the result back to the client.
@@ -195,7 +194,7 @@ So now when our client hits the `/api/v1/parcels` route the server opens a conne
 Before we write the code that lets us add a new parcel, we need some helpers for generating the unique barcodes. Lets run `$ npm install uuid -s` and in `app.js` add
 
 ```javascript
-const uuidv4 = require('uuid/v4')
+const uuidv4 = require('uuid/v4');
 ```
 
 Lets write another test, inside the same 'API Routes' function block just underneath the `GET /api/v1/parcels` test, this time for posting a new parcel to the server:
@@ -247,9 +246,9 @@ app.post('/api/v1/parcels', async (req, res, next) => {
       $uuid: uuid,
       $parcel_status: req.body.parcel_status,
       $creation_date: new Date().toISOString(),
-    }
-    const uuid = uuidv4()
-    const db = await dbPromise
+    };
+    const uuid = uuidv4();
+    const db = await dbPromise;
     const parcels = await db.run(
       `INSERT INTO parcels (
             user_id,
@@ -276,15 +275,15 @@ app.post('/api/v1/parcels', async (req, res, next) => {
             $shipment_status,
             $creation_date)`,
       payload
-    )
+    );
     res.send({
       message: 'Success!',
       barcode: uuid,
-    })
+    });
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 Here when a client hits the `/api/v1/parcels` route with a POST request and supplies address information, it's saved in the database as a new record.
@@ -316,13 +315,13 @@ describe('GET /api/v1/parcels/:barcode', function() {
       .request(server)
       .get('/api/v1/parcels/f34c6658-818b-11e8-adc0-fa7ae01bbebc')
       .end(function(err, res) {
-        res.should.have.status(200)
-        res.should.be.json
-        res.body.should.be.a('object')
-        done()
-      })
-  })
-})
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('object');
+        done();
+      });
+  });
+});
 ```
 
 Here we are using a barcode from one of our sample rows in the `001-init.sql` file as these are static and easy to reference.
@@ -332,16 +331,16 @@ Run the test with `$ mocha` and see that it fails with a 404. Now we need to wri
 ```javascript
 app.get('/api/v1/parcels/:barcode', async (req, res, next) => {
   try {
-    const db = await dbPromise
+    const db = await dbPromise;
     const parcels = await db.get(
       'SELECT * FROM parcels WHERE barcode = ?',
       req.params.barcode
-    )
-    res.send(parcels)
+    );
+    res.send(parcels);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 Rerun the test and... voila! 3 passing tests.
@@ -365,13 +364,13 @@ describe('PUT /api/v1/parcels/:barcode', function() {
         shipment_status: 'Received',
       })
       .end(function(err, res) {
-        res.should.have.status(200)
-        res.should.be.json
-        res.body.should.not.equal(0)
-        done()
-      })
-  })
-})
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.not.equal(0);
+        done();
+      });
+  });
+});
 ```
 
 Run the test and see that it fails. That's a good sign. Now we write the route. This looks similar to the previous route we made:
@@ -388,8 +387,8 @@ app.put('/api/v1/parcels/:barcode', async (req, res, next) => {
       $shipping_method: req.body.shipping_method,
       $shipment_status: req.body.shipment_status,
       $received_date: new Date().toISOString(),
-    }
-    const db = await dbPromise
+    };
+    const db = await dbPromise;
     const parcels = await db.run(
       `UPDATE parcels SET
             shipment_weight=$shipment_weight,
@@ -401,12 +400,12 @@ app.put('/api/v1/parcels/:barcode', async (req, res, next) => {
             received_date=$received_date
             WHERE barcode = $barcode`,
       payload
-    )
-    res.json(parcels.changes)
+    );
+    res.json(parcels.changes);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 ### DELETE
@@ -432,22 +431,24 @@ describe('DELETE /api/v1/parcels/:barcode', function() {
       .request(server)
       .delete('/api/v1/parcels/f34c6658-818b-11e8-adc0-fa7ae01bbebb')
       .end(function(err, res) {
-        res.should.have.status(200)
-        res.should.be.json
-      })
+        res.should.have.status(200);
+        res.should.be.json;
+      });
     chai
       .request(server)
       .get('/api/v1/parcels/')
       .end(function(err, res) {
-        res.should.have.status(200)
-        res.should.be.json
-        res.body.should.be.a('array')
-        res.body[0].should.have.property('barcode')
-        res.body[0].barcode.should.equal('f34c6658-818b-11e8-adc0-fa7ae01bbebc')
-      })
-    done()
-  })
-})
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        res.body[0].should.have.property('barcode');
+        res.body[0].barcode.should.equal(
+          'f34c6658-818b-11e8-adc0-fa7ae01bbebc'
+        );
+      });
+    done();
+  });
+});
 ```
 
 Here we are sending a request to the server to delete the parcel with "I SHOULD BE DELETED" as an address (note the 'bb' at the end of my barcode instead of the 'bc').
@@ -459,16 +460,16 @@ Run the test. It fails. Now write the route.
 ```javascript
 app.delete('/api/v1/parcels/:barcode', async (req, res, next) => {
   try {
-    const db = await dbPromise
+    const db = await dbPromise;
     const parcels = await db.run(
       'DELETE FROM parcels WHERE barcode = ?',
       req.params.barcode
-    )
-    res.json(parcels)
+    );
+    res.json(parcels);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 Run the tests again...
@@ -513,24 +514,21 @@ Here's what `index.html` should look like:
 
 ```html
 <html>
+  <head>
+    <title>Express</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-<head>
-  <title>Express</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+  <body>
+    <h1>Express</h1>
+    <p>Welcome to Express</p>
 
-<body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
-
-  <form action="/api/v1/parcels" method="post">
-    User ID:
-    <input type="text" name="user_id">
-    <input type="submit" value="Submit">
-  </form>
-
-</body>
-
+    <form action="/api/v1/parcels" method="post">
+      User ID:
+      <input type="text" name="user_id" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
 </html>
 ```
 
@@ -566,22 +564,20 @@ Lets create a new folder and HTML file `$ touch mailroom/index.html` and open it
 
 ```html
 <html>
-
-<head>
+  <head>
     <title>Express</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
 
-<body>
+  <body>
     <h1>Mailroom View</h1>
     <p>Please enter a barcode to retrieve a record</p>
     <form action="/api/v1/parcels" method="get">
-        Barcode:
-        <input type="text" name="barcode">
-        <input type="submit" value="Submit">
+      Barcode:
+      <input type="text" name="barcode" />
+      <input type="submit" value="Submit" />
     </form>
-</body>
-
+  </body>
 </html>
 ```
 
@@ -598,8 +594,8 @@ We get back an array of all our parcels. Not what we're looking for. If we look 
 
 Now we can decide to either
 
-* use the barcode as a query parameter and refactor our routes, or
-* we can see if the form can submit to our `/api/v1/:barcode` route as a path variable
+- use the barcode as a query parameter and refactor our routes, or
+- we can see if the form can submit to our `/api/v1/:barcode` route as a path variable
 
 I'm not sure if there is a right answer as this design consideration seems to be subjective from the research I've done, but as our HTML form is presenting us with the query option by default we will go with that paradigm.
 
@@ -608,17 +604,17 @@ We will change our route to the following which will show us a specific parcel w
 ```javascript
 app.get('/api/v1/parcels', async (req, res, next) => {
   try {
-    const query = { $barcode: req.query.barcode }
-    const db = await dbPromise
+    const query = { $barcode: req.query.barcode };
+    const db = await dbPromise;
     const parcels = await db.all(
       'SELECT * FROM parcels WHERE ($barcode IS NULL OR barcode = $barcode)',
       query
-    )
-    res.send(parcels)
+    );
+    res.send(parcels);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
 ```
 
 ### Adding React
@@ -659,8 +655,8 @@ now add a simple export
 
 ```javascript
 export default () => {
-  return <div>Hello World</div>
-}
+  return <div>Hello World</div>;
+};
 ```
 
 run `$ npm run dev` and open http://localhost:3030 to see our message!
@@ -670,7 +666,7 @@ Note: In my case, the default localhost:3000 was taken.
 Let's rewrite our two pages as components. Starting with a `users.js` in our pages folder
 
 ```javascript
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class UserPage extends Component {
   render() {
@@ -679,61 +675,61 @@ export default class UserPage extends Component {
         <h1>User View</h1>
         <p>Please fill out the following form to generate your shipping code</p>
 
-        <form action="/api/v1/parcels" method="post">
+        <form action='/api/v1/parcels' method='post'>
           <fieldset>
             <legend>User Information</legend>
             User ID:
-            <input type="text" name="user_id" />
+            <input type='text' name='user_id' />
             <br /> File Number:
-            <input type="text" name="file_id" />
+            <input type='text' name='file_id' />
           </fieldset>
           <br />
           <fieldset>
             <legend>Package Information</legend>
-            <input type="radio" name="shipment_type" value="mail" /> Mail
-            <input type="radio" name="shipment_type" value="parcel" /> Parcel
+            <input type='radio' name='shipment_type' value='mail' /> Mail
+            <input type='radio' name='shipment_type' value='parcel' /> Parcel
             <br /> Destination:
-            <select name="shipment_locale">
-              <option value="local">Within the Lower Mainland</option>
-              <option value="national">Within Canada</option>
-              <option value="international">International</option>
+            <select name='shipment_locale'>
+              <option value='local'>Within the Lower Mainland</option>
+              <option value='national'>Within Canada</option>
+              <option value='international'>International</option>
             </select>
             <br /> Shipping Speed:
-            <select name="shipment_speed">
-              <option value="one">One</option>
-              <option value="two">Two</option>
-              <option value="three">Three</option>
+            <select name='shipment_speed'>
+              <option value='one'>One</option>
+              <option value='two'>Two</option>
+              <option value='three'>Three</option>
             </select>
           </fieldset>
           <br />
           <fieldset>
             <legend>Recipient Information</legend>
             Recipient Name:
-            <input type="text" name="attn_name" />
+            <input type='text' name='attn_name' />
             <br /> Phone Number:
-            <input type="tel" name="attn_phone" />
+            <input type='tel' name='attn_phone' />
             <br /> Organization:
-            <input type="text" name="attn_organization" />
+            <input type='text' name='attn_organization' />
           </fieldset>
           <br />
           <fieldset>
             <legend>Shipping Address</legend>
             Address:
-            <input type="text" name="street_address" />
+            <input type='text' name='street_address' />
             <br /> City:
-            <input type="text" name="city" />
+            <input type='text' name='city' />
             <br /> Province/State:
-            <input type="text" name="state_or_province" />
+            <input type='text' name='state_or_province' />
             <br /> Country:
-            <input type="text" name="country" />
+            <input type='text' name='country' />
             <br /> Postal Code:
-            <input type="text" name="postal_code" />
+            <input type='text' name='postal_code' />
           </fieldset>
           <br />
-          <input type="submit" value="Submit" />
+          <input type='submit' value='Submit' />
         </form>
       </div>
-    )
+    );
   }
 }
 ```
@@ -748,16 +744,16 @@ const MailroomPage = () => {
     <div>
       <h1>Mailroom View</h1>
       <p>Please enter a barcode to retrieve a record</p>
-      <form action="/api/v1/parcels" method="get">
+      <form action='/api/v1/parcels' method='get'>
         Barcode:
-        <input type="text" name="barcode" />
-        <input type="submit" value="Submit" />
+        <input type='text' name='barcode' />
+        <input type='submit' value='Submit' />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default MailroomPage
+export default MailroomPage;
 ```
 
 Which will now be available at http://localhost:3030/mailroom
@@ -804,8 +800,8 @@ and on each `<input>` we will add `value={this.state.###} onChange={this.handleC
 
 ```javascript
 <input
-  type="text"
-  name="user_id"
+  type='text'
+  name='user_id'
   value={this.state.user_id}
   onChange={this.handleChange}
 />
@@ -815,9 +811,9 @@ our Radio buttons will look slightly different:
 
 ```javascript
 <input
-  type="radio"
-  name="shipment_type"
-  value="mail"
+  type='radio'
+  name='shipment_type'
+  value='mail'
   checked={this.state.shipment_type === 'mail'}
   onChange={this.handleChange}
 />
@@ -827,13 +823,13 @@ as will our Select options:
 
 ```javascript
 <select
-  name="shipment_locale"
+  name='shipment_locale'
   value={this.state.shipment_locale}
   onChange={this.handleChange}
 >
-  <option value="local">Within the Lower Mainland</option>
-  <option value="national">Within Canada</option>
-  <option value="international">International</option>
+  <option value='local'>Within the Lower Mainland</option>
+  <option value='national'>Within Canada</option>
+  <option value='international'>International</option>
 </select>
 ```
 
@@ -894,9 +890,9 @@ Now we run into a CORS (Cross Origin Resource Sharing) issue. This is because, i
 To solve this: in our root project directory (ie. not in the client folder) run `$ npm install -s cors`. Open app.js and add
 
 ```javascript
-const cors = require('cors')
+const cors = require('cors');
 
-app.use(cors())
+app.use(cors());
 ```
 
 now restart the server `$ npm start` and try the request from the client again.
@@ -914,17 +910,17 @@ Let start with a components folder in our client directory `$ mkdir client/compo
 In `label.js` we'll create a simple functional component that accepts props.
 
 ```javascript
-import React from 'react'
+import React from 'react';
 
 export default props => {
-  return <div>{props.barcode}</div>
-}
+  return <div>{props.barcode}</div>;
+};
 ```
 
 In `user.js` we'll add to the top:
 
 ```javascript
-import Label from '../components/label'
+import Label from '../components/label';
 ```
 
 and under the closing form tag add a `<Label barcode={this.state.barcode} />` tag.
@@ -936,12 +932,12 @@ In our client directory, run `$ npm install -s bwip-js` which is the library tha
 In `label.js` add our import statement and modify the functional component to a class component:
 
 ```javascript
-import React, { Component } from 'react'
-import bwipjs from 'bwip-js'
+import React, { Component } from 'react';
+import bwipjs from 'bwip-js';
 
 export default class Label extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   componentDidUpdate() {
@@ -953,18 +949,18 @@ export default class Label extends Component {
       },
       (err, cvs) => {
         if (err) {
-          console.error(err)
+          console.error(err);
         }
       }
-    )
+    );
   }
 
   render() {
     return (
       <div>
-        <canvas id="target-canvas" />
+        <canvas id='target-canvas' />
       </div>
-    )
+    );
   }
 }
 ```
@@ -976,31 +972,31 @@ Now fill out the form and click submit. Voila! A QR code appears.
 To make the next part easier, I made a component that lists all existing records in the database.
 
 ```javascript
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class LabelList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = { data: [] }
+    this.state = { data: [] };
   }
 
   componentDidMount = () => {
     fetch(`http://localhost:3000/api/v1/parcels`)
       .then(response => response.json())
       .then(data => this.setState({ data: data }))
-      .catch(err => console.error(err))
-  }
+      .catch(err => console.error(err));
+  };
 
   render() {
     return (
       <div>
         <h3>All Records</h3>
         {this.state.data.map(label => {
-          return <div key={label.id}>{label.barcode}</div>
+          return <div key={label.id}>{label.barcode}</div>;
         })}
       </div>
-    )
+    );
   }
 }
 ```
@@ -1015,17 +1011,17 @@ Lets create a component to render our retrieved record from the database:
 
 ```javascript
 // Record.js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Record extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = {}
+    this.state = {};
   }
 
   render() {
-    return <div>{this.props.data.barcode}</div>
+    return <div>{this.props.data.barcode}</div>;
   }
 }
 ```
@@ -1034,34 +1030,34 @@ And let's modify the mailroom with some of the same code we used in the user vie
 
 ```javascript
 // mailroom.js
-import React, { Component } from 'react'
-import LabelList from '../components/labelList'
-import Record from '../components/Record'
+import React, { Component } from 'react';
+import LabelList from '../components/labelList';
+import Record from '../components/Record';
 
 export class MailroomPage extends Component {
   constructor(props) {
-    super(props)
-    this.state = { barcode: '', data: {} }
+    super(props);
+    this.state = { barcode: '', data: {} };
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     fetch(`http://localhost:3000/api/v1/parcels?barcode=${this.state.barcode}`)
       .then(response => response.json())
       .then(data => {
-        this.setState({ data: data[0] })
+        this.setState({ data: data[0] });
       })
-      .catch(error => console.error(error))
-    event.preventDefault()
+      .catch(error => console.error(error));
+    event.preventDefault();
   }
 
   handleChange(event) {
-    const target = event.target
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
-    this.setState({ [name]: value })
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -1072,21 +1068,21 @@ export class MailroomPage extends Component {
         <form onSubmit={this.handleSubmit}>
           Barcode:
           <input
-            type="text"
-            name="barcode"
+            type='text'
+            name='barcode'
             value={this.state.attn_name}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
+          <input type='submit' value='Submit' />
         </form>
         <Record data={this.state.data} />
         <LabelList />
       </div>
-    )
+    );
   }
 }
 
-export default MailroomPage
+export default MailroomPage;
 ```
 
 Now when we submit a barcode, we should see the name of our recipient.
@@ -1095,9 +1091,9 @@ Now when we submit a barcode, we should see the name of our recipient.
 
 Here are some easy steps I completed without documenting:
 
-* Header component with navigation links to make it easy to swap between views.
-* More information on record retrieval in the Record component.
-* More fields in the Label component to give the user feedback on their submission
+- Header component with navigation links to make it easy to swap between views.
+- More information on record retrieval in the Record component.
+- More fields in the Label component to give the user feedback on their submission
 
 ## Next Steps
 

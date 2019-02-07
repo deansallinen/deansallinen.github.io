@@ -1,9 +1,10 @@
 ---
-path: "/projects/the-last-skytrain"
-date: "2017-03"
-title: "The Last Skytrain"
-tags: ["UX", "UI", 'Class Project']
+path: '/projects/the-last-skytrain'
+date: '2017-03'
+title: 'The Last Skytrain'
+tags: ['UX', 'UI', 'Class Project']
 toc: false
+thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---
 
 ## Simplifying the late night train schedule experience.

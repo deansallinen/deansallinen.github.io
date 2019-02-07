@@ -4,6 +4,7 @@ date: '2018-11'
 title: 'Ferrytime'
 tags: ['React', 'GraphQL', 'Gatsby', 'PWA', 'UX', 'UI']
 toc: false
+thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---
 
 ![Ferrytime](../img/ferrytime/three.png 'The Ferrytime PWA')
