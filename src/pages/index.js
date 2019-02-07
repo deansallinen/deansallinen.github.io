@@ -9,14 +9,22 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
+  const Card = node => (
+    <div className="w-screen md:w-1/3 p-2">
+      <Link to={node.frontmatter.path}>
+        <div key={node.id} className="p-2 shadow hover:shadow-lg transition">
+          <div className="h-32 bg-grey-light" />
+          <h3>{node.frontmatter.title}</h3>
+          <p>{node.frontmatter.tags}</p>
+          {/* <p>{node.excerpt}</p> */}
+        </div>
+      </Link>
+    </div>
+  );
+
   const Posts = edges
     .filter(edge => !!edge.node.frontmatter.date)
-    .map(({ node }) => (
-      <div key={node.id}>
-        <Link to={node.frontmatter.path}>{node.frontmatter.title}</Link>
-        <p>{node.frontmatter.tags}</p>
-      </div>
-    ));
+    .map(({ node }) => <Card {...node} />);
 
   return (
     <Layout>
@@ -24,20 +32,8 @@ const IndexPage = ({
         title="Home"
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
-
-      <div className="text-center">
-        <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{' '}
-          <a
-            href="https://tailwindcss.com/"
-            className="font-bold no-underline text-grey-darkest"
-          >
-            Tailwind
-          </a>
-          , a utility-first CSS framework.
-        </p>
-        <div>{Posts}</div>
-      </div>
+      {/* <h2>Other Projects</h2> */}
+      <div className="flex flex-wrap">{Posts}</div>
     </Layout>
   );
 };
@@ -55,6 +51,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM YYYY")
             path
             title
+            tags
           }
         }
       }

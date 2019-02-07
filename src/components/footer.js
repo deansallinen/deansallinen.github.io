@@ -7,7 +7,7 @@ export default function Footer() {
         <p className="text-white">Created by Dean Sallinen</p>
         <p>
           <a
-            href="https://github.com/taylorbryant/gatsby-starter-tailwind"
+            href="https://github.com/deansallinen"
             className="font-bold no-underline text-white"
           >
             GitHub

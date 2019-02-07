@@ -13,7 +13,7 @@ const Header = ({ siteTitle }) => (
   <nav className="">
     <div className="flex flex-wrap items-center justify-between max-w-xl mx-auto p-4 md:p-8">
       <Link to="/" className="flex items-center no-underline text-grey-darkest">
-        <span className="font-bold text-xl ">{siteTitle}</span>
+        {/* <span className="font-bold text-xl ">{siteTitle}</span> */}
       </Link>
 
       <button
@@ -46,12 +46,12 @@ const Header = ({ siteTitle }) => (
             About
           </Link>
 
-          <Link
+          {/* <Link
             to="/contact"
             className="block md:inline-block mt-4 md:mt-0 no-underline text-grey-darkest"
           >
             Contact
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
