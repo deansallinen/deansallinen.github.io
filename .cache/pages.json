@@ -1,0 +1,77 @@
+[
+    {
+        "componentChunkName": "component---src-pages-index-js",
+        "jsonName": "index",
+        "path": "/"
+    },
+    {
+        "componentChunkName": "component---src-pages-404-js",
+        "jsonName": "404-html-516",
+        "path": "/404.html"
+    },
+    {
+        "componentChunkName": "component---src-pages-404-js",
+        "jsonName": "404-22d",
+        "path": "/404/"
+    },
+    {
+        "componentChunkName": "component---src-pages-about-js",
+        "jsonName": "about-f34",
+        "path": "/about/"
+    },
+    {
+        "componentChunkName": "component---src-pages-contact-js",
+        "jsonName": "contact-26a",
+        "path": "/contact/"
+    },
+    {
+        "componentChunkName": "component---cache-dev-404-page-js",
+        "jsonName": "dev-404-page-5f9",
+        "path": "/dev-404-page/"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "mobify-34f",
+        "path": "/mobify"
+    },
+    {
+        "componentChunkName": "component---src-pages-parking-js",
+        "jsonName": "parking-960",
+        "path": "/parking/"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-bc-votes-baf",
+        "path": "/projects/bc-votes"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-brincao-4fd",
+        "path": "/projects/brincao"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-ferrytime-54a",
+        "path": "/projects/ferrytime"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-flextogcal-6c8",
+        "path": "/projects/flextogcal"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-mailroom-770",
+        "path": "/projects/mailroom"
+    },
+    {
+        "componentChunkName": "component---src-templates-blog-template-js",
+        "jsonName": "projects-the-last-skytrain-480",
+        "path": "/projects/the-last-skytrain"
+    },
+    {
+        "componentChunkName": "component---src-pages-resume-js",
+        "jsonName": "resume-e4f",
+        "path": "/resume/"
+    }
+]

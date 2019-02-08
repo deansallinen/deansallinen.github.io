@@ -32,11 +32,16 @@ export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
+      headings {
+        value
+        depth
+      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
         title
         tags
+        toc
       }
     }
   }
