@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 const ContactPage = () => (
   <Layout>
@@ -10,7 +10,13 @@ const ContactPage = () => (
       keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
     />
 
-    <form className="mx-auto md:w-1/2">
+    <form
+      className="mx-auto md:w-1/2"
+      data-netlify="true"
+      name="contact"
+      method="post"
+    >
+      <input type="hidden" name="form-name" value="contact" />
       <p className="leading-loose mb-8">
         Here is an example of a form built using Tailwind. Click{' '}
         <a
@@ -63,11 +69,14 @@ const ContactPage = () => (
         rows="8"
       />
 
-      <button className="border-b-4 border-grey-darker hover:border-grey-dark bg-grey-dark hover:bg-grey font-bold px-6 py-3 rounded text-sm text-white">
+      <button
+        type="submit"
+        className="border-b-4 border-grey-darker hover:border-grey-dark bg-grey-dark hover:bg-grey font-bold px-6 py-3 rounded text-sm text-white"
+      >
         Submit
       </button>
     </form>
   </Layout>
-)
+);
 
-export default ContactPage
+export default ContactPage;

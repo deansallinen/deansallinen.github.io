@@ -1,19 +1,23 @@
 ---
-path: "/projects/bc-votes"
-date: "2017-05"
-title: "BC Votes"
-tags: ""
+path: '/projects/bc-votes'
+date: '2017-05'
+title: 'BC Votes'
+tags: ['UI', 'HTML', 'CSS']
+toc: false
+thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---
 
 ![mockup on laptop](../img/bcvotes/bcvotes-mockup1.png)
 
-## A project to compare BC political parties, display platforms, and find candidates.
+## A project to compare BC political parties, display party platforms, and find candidates.
 
-My role in this project was **design** and **front-end development**, and my friend @Rizwan did back-end and scraping.
+My role in this project was **design** and **front-end development** working closely with a back-end developer.
 
 ## Problem Space
 
-Leading up to the British Columbia provincial election on May 9th, 2017 there was no easy way to find candidates for a political riding. We wanted to help inquisitive citizens find their candidates simply and quickly.
+Leading up to the British Columbia provincial election on May 9th, 2017 there was no easy way to find candidates for a political riding.
+
+We wanted to help inquisitive citizens find their candidates simply and quickly.
 
 This idea came out of conversations with young voters who didn’t follow politics. Young adults are less likely to watch cable TV, and therefore local news programs, which would feature election coverage on a regular basis.
 
@@ -23,12 +27,12 @@ These millennial voters are more likely to look online for information to help t
 
 Our target user was a young millennial, mid 20's:
 
-* Their first (or second) provincial election
-* Cordcutter (no cable TV)
-* Gets news from social media, internet savvy
-* Beginning to take an interest in social issues
-* Young career professional
-* Living in the suburbs
+- Their first (or second) provincial election
+- Cordcutter (no cable TV)
+- Gets news from social media, internet savvy
+- Beginning to take an interest in social issues
+- Young career professional
+- Living in the suburbs
 
 ## Ideation
 
@@ -36,11 +40,11 @@ The idea was to have an unbiased one-stop-shop to help get you up to speed on th
 
 Initally we wanted to create a dashboard where our user could:
 
-* compare party platforms and candidates,
-* view important election issues,
-* candidate stances on the issues,
-* find ridings and voting places, and
-* add the election day to their calendar.
+- compare party platforms and candidates,
+- view important election issues,
+- candidate stances on the issues,
+- find ridings and voting places, and
+- add the election day to their calendar.
 
 The scope was ambitious given the hard deadline of an election day and we learned the hard way there is always a tradeoff between scope, budget, and time.
 
@@ -48,7 +52,7 @@ The scope was ambitious given the hard deadline of an election day and we learne
 
 We found that our initial scope vastly outweighed our budget and schedule.
 
-This was a side project done on evenings and weekends with a total budget of $20 or less (domain registration mostly). This means we would not be able to contract a team or dedicate the hours ourselves to implement all of the features we wanted to see.
+This was a side project done on evenings and weekends with a total budget of \$20 or less (domain registration mostly). This means we would not be able to contract a team or dedicate the hours ourselves to implement all of the features we wanted to see.
 
 > Our budget and time constraints dictated that we reduce the initial scope.
 
@@ -69,7 +73,7 @@ Before our time ran out, we were able to add:
 1.  An "Add to Calendar" button which downloaded a .ics file with the date and time of the election.
 2.  A couple of short articles written by our resident historian and political enthusiast @GustavoDestro on the importance of voting and a brief introduction to the B.C. parliamentary system
 
-![screenshot of site with filter](../img/bcvotes/mockup1-large-dark.png)
+![screenshot of site with filter](../img/bcvotes/mockup1-large-dark.png 'Screenshot of BC Votes 2017')
 
 ## Design
 
@@ -77,9 +81,9 @@ Having worked as an election official in previous elections, I've grown to like 
 
 Kept the colour scheme black and white to avoid any potential bias caused by using party colours. The `<hr>` tags are dotted to represent perforations on the ballots.
 
-Also took inspiration from the MIT Technology Review site which has clean typography, a distinct call to action button in the header, and clear information architecture. If we hadn't run out of time, I would take more effort to differentiate the design as it looks too derivative... almost a blatant copy.
+Also took inspiration from the MIT Technology Review site which has clean typography, a distinct call to action button in the header, and clear information architecture.
 
-![MIT Review homepage](../img/bcvotes/mit-review.png 'Great inspiration from a great site')
+![MIT Review homepage](../img/bcvotes/mit-review.png)
 
 ## Setbacks and Solutions
 
@@ -93,8 +97,8 @@ This provided a passable mobile experience but didn't get to the root of the pro
 
 At this point in development we were forced to make a decision:
 
-* continue to add functionality to the site at the expense of the mobile experience, or
-* redo the backend with a database that would allow for more flexible display options?
+- continue to add functionality to the site at the expense of the mobile experience, or
+- redo the backend with a database that would allow for more flexible display options?
 
 We assumed that a site providing pre-election research utility would become virtually irrelevant after the election date, so we made the choice to keep the table. Learning experience!
 
