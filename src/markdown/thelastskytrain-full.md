@@ -7,9 +7,9 @@ toc: false
 thumb: '../img/thelastskytrain/thelastskytrain-mockup2.png'
 ---
 
-## Simplifying the late night train schedule experience.
+![Mockup of the last skytrain site](../img/thelastskytrain/thelastskytrain-mockup2.png)
 
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTKBguKbmOa1pL2NKYCAIuSxccFqrzEGRIKFhE1Swz2cUDizma1A4IGniRa-3CujzJuzJfvKFwrq6hv/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+## Simplifying the late night train schedule experience.
 
 Rethinking data visualization as part of a Brainstation Class Project. My challenge was to imagine an alternative to the official transit website that simplifies an existing multi-page workflow while choosing an appropriate taxonomy to enhance usability.
 
@@ -22,6 +22,9 @@ A single page scrolling site with colour-coded and spatially related information
 The idea was to improve the experience of finding the time of the last Skytrain.
 
 Through research, I found that most people who need this information are searching Google on mobile and visiting the official Translink website.
+
+![Twitter complaints](../img/thelastskytrain/presentation/1.png)
+
 
 Unfortunately, the official website doesn’t prioritize this information or make it easy to find for a first time or infrequent user (Experienced users are able to find this information through recall).
 
@@ -46,6 +49,10 @@ Almost a hidden feature, and still doesn't answer our question: "When is the las
 User Personas
 To better understand the target user, a couple of personas were created.
 
+![Persona](../img/thelastskytrain/presentation/2.png)
+
+### Persona
+
 Emily Chambers
 girl drinking a beer
 Age: 25
@@ -55,45 +62,49 @@ Currently: Downtown
 Day: Friday
 Time: 1:00 AM
 
-Key Quote
+##### Key Quote
 "lmao once i missed the last skytrain and i had to wander around downtown at 2am looking for a night bus home! not fun!"
-User Story
+
+##### User Story
 Emily is out with friends at the Commodore Ballroom watching a live performance of local rock band Mother Mother. She's had a couple overpriced IPAs and is considering getting another. After all, she's hardly ever downtown and there's no work tomorrow morning!
 
 After a couple of crowd-pleasing encores, the show is letting out and her group of friends are standing outside the doors. Alex and Sarah live in Yaletown and are going to walk home. A couple of others live in Kits and can catch a late night bus. Emily and her friend Katelyn need to catch the Skytrain home, but is it still running? She knows it doesn't run 24 hours, but when is the last train? She needs to find out now if she can make the train or ask Alex or Sarah to crash on their couch.
 
 Emily pulls out her iPhone and begins her search...
 
-James Eldrich
-sharply dressed man
-Age: 29
-Status: 😴 💤
-Lives in: New Westminster
-Currently: Downtown
-Day: Wednesday
-Time: 12:45 AM
+<!--James Eldrich-->
+<!--sharply dressed man-->
+<!--Age: 29-->
+<!--Status: 😴 💤-->
+<!--Lives in: New Westminster-->
+<!--Currently: Downtown-->
+<!--Day: Wednesday-->
+<!--Time: 12:45 AM-->
 
-Key Quote
-"Last time I read the Translink schedule incorrectly I missed the last helicopter out of Saigon. Not looking forward to another cab ride!"
-User Story
-James just finished his first double shift as a concierge at his job in the Pan Pacific Hotel. He usually works the morning shift, but offered to cover for a co-worker tonight. Maybe it wasn't the greatest decision — he still has to work the morning shift tomorrow — but he knows the effect on his paycheck will be good. After 16 hours of work all he can think about right now is the sweet, pillowy softness of his bed...
+<!--Key Quote-->
+<!--"Last time I read the Translink schedule incorrectly I missed the last helicopter out of Saigon. Not looking forward to another cab ride!"-->
+<!--User Story-->
+<!--James just finished his first double shift as a concierge at his job in the Pan Pacific Hotel. He usually works the morning shift, but offered to cover for a co-worker tonight. Maybe it wasn't the greatest decision — he still has to work the morning shift tomorrow — but he knows the effect on his paycheck will be good. After 16 hours of work all he can think about right now is the sweet, pillowy softness of his bed...-->
 
-After collecting his bag from his locker in the employee change room, James wonders how he's going to get home. He took the Skytrain this morning but knows from experience it doesn't run late at night. He made that mistake once and had to take an expensive cab ride from the bar to his house.
+<!--After collecting his bag from his locker in the employee change room, James wonders how he's going to get home. He took the Skytrain this morning but knows from experience it doesn't run late at night. He made that mistake once and had to take an expensive cab ride from the bar to his house.-->
 
-Not looking to spend the dough on a cab, James pulls out his beloved Samsung S8 and starts looking for the train schedule...
+<!--Not looking to spend the dough on a cab, James pulls out his beloved Samsung S8 and starts looking for the train schedule...-->
 
 ## Experience Map
 
 The experience map was created for a step by step analysis on what a user, in this case James, would feel as they tried to find the time of the last train home.
 
-experience map
+![experience map](../img/thelastskytrain/experience-map.png)
+
 
 ## Ideation
 
 I began by considering the options available. We could either:
 
 Improve the official website. Make it easier for users to navigate and find the information they require. This would be an ideal solution, but would mean I could only provide an unsolicited redesign and our users will still have their needs unmet.
+
 Improve the Google maps option and simplify the process for less-technical users. This would require a redesign of the Google maps app to better advertise transit options, and is not an easy undertaking.
+
 Create a new website. This would allow for a tailor-made experience that solves the user’s problem directly.
 For this project I decided to move forward with option 3 and create and new website.
 
@@ -113,6 +124,7 @@ timeline view
 Nope.
 low fidelity mockup
 Yep.
+
 Why a new site and not a redesign of the official site?
 Be the change you want to see: a new site is something that can be designed, developed, and released to solve this real-world problem independently of Translink. This will allow us to build a product that takes a concept and implements a solution. Ideally, Translink would consider the UX of their site. In the meantime, we can help these users ourselves.
 
@@ -207,6 +219,9 @@ Users who are downtown, like James and Emily, are closer to the beginning of the
 ## Prototype
 
 The second prototype:
+
+![second prototype](../img/thelastskytrain/prototype-2.webm)
+
 
 Hmm... looks like a lot of scrolling...
 Future Directions

@@ -7,6 +7,8 @@ toc: false
 thumb: '../img/flextogcal/flex-to-gcal.png'
 ---
 
+![Flex calendar vs the resulting google calendar](../img/flextogcal/flex-to-gcal.png)
+
 This project uses Javascript to connect a popular event-industry inventory management system with a sharable Google calendar using REST APIs in an attempt to improve calendar usability. Initially written in ES5 using the Google Apps Script platform, the project was rewritten in ES6 on a Node server when the limitations of using Google Apps Script outweighed the initial benefits.
 
 ## Problem
