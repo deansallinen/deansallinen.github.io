@@ -10,19 +10,29 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
-  const Card = node => (
-    <div className="w-screen md:w-1/3 p-2">
-      <Link to={node.frontmatter.path}>
-        <div key={node.id} className="p-2 shadow hover:shadow-lg transition">
-          <div className="h-32 bg-grey-light">
-            <Img fixed={node.frontmatter.thumb.childImageSharp.fixed} />
-          </div>
-          <h3>{node.frontmatter.title}</h3>
-          <p>{node.frontmatter.tags}</p>
+  const Tags = ({ tags }) =>
+    tags.map(tag => <span className="mr-2">{tag}</span>);
 
-          {/* <p>{node.excerpt}</p> */}
+  const Card = node => (
+    <div
+      key={node.id}
+      className="container flex px-4 mx-auto mb-8 md:w-1/2 xl:w-1/3 "
+    >
+      <div className="flex flex-col flex-grow justify-between p-4 shadow hover:shadow-lg transition">
+        <Img fluid={node.frontmatter.thumb.childImageSharp.fluid} />
+        <div>
+          <Link className="no-underline " to={node.frontmatter.path}>
+            <h3 className="text-grey-darkest hover:underline">
+              {node.frontmatter.title}
+            </h3>
+          </Link>
+          <div className="text-grey text-sm">
+            <Tags tags={node.frontmatter.tags} />
+          </div>
         </div>
-      </Link>
+
+        {/* <p>{node.excerpt}</p> */}
+      </div>
     </div>
   );
 
@@ -36,8 +46,9 @@ const IndexPage = ({
         title="Home"
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
       />
+      <div />
       {/* <h2>Other Projects</h2> */}
-      <div className="flex flex-wrap">{Posts}</div>
+      <div className="flex flex-wrap -mx-4">{Posts}</div>
     </Layout>
   );
 };
@@ -58,8 +69,8 @@ export const pageQuery = graphql`
             tags
             thumb {
               childImageSharp {
-                fixed(height: 128) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 900) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

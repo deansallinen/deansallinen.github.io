@@ -13,7 +13,7 @@ const AboutPage = () => (
 
     <div className="flex flex-col md:flex-row items-center">
       <div className="">
-        <p className="border-l-4 border-grey-darkest font-serif leading-loose pl-4 text-justify">
+        {/* <p className="border-l-4 border-grey-darkest font-serif leading-loose pl-4 text-justify">
           The point is... to live one's life in the full complexity of what one
           is, which is something much darker, more contradictory, more of a
           maelstrom of impulses and passions, of cruelty, ecstacy, and madness,
@@ -23,9 +23,9 @@ const AboutPage = () => (
 
         <p className="font-bold mt-4 text-right text-xs uppercase">
           – Thomas Nagel
-        </p>
+        </p> */}
 
-        <p>Hi, I’m Dean. 👋</p>
+        <h1>Hi, I’m Dean. 👋</h1>
         <p>
           I’m from Vancouver, BC and I like to consider myself a{' '}
           <em>UX Developer</em>.
@@ -83,43 +83,35 @@ const AboutPage = () => (
           method="post"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <p className="leading-loose mb-8">
-            Here is an example of a form built using Tailwind. Click{' '}
-            <a
-              href="https://tailwindcss.com/docs/examples/forms"
-              className="font-bold no-underline text-grey-darkest"
-            >
-              here
-            </a>{' '}
-            to see more examples.
-          </p>
 
           <label
             className="block font-bold mb-2 text-xs uppercase"
-            htmlFor="first-name"
+            htmlFor="name"
           >
-            First Name
+            Name
           </label>
 
           <input
             className="appearance-none block bg-grey-lighter mb-6 p-3 rounded-md text-grey-darker w-full"
-            id="first-name"
+            id="name"
             type="text"
             placeholder="Bill"
+            name="name"
           />
 
           <label
             className="block font-bold mb-2 text-xs uppercase"
-            htmlFor="last-name"
+            htmlFor="email"
           >
-            Last Name
+            Email
           </label>
 
           <input
             className="appearance-none block bg-grey-lighter mb-6 p-3 rounded-md text-grey-darker w-full"
-            id="last-name"
-            type="text"
-            placeholder="Murray"
+            id="email"
+            type="email"
+            placeholder="Bill@example.com"
+            name="email"
           />
 
           <label
@@ -131,7 +123,7 @@ const AboutPage = () => (
 
           <textarea
             className="appearance-none bg-grey-lighter mb-6 p-3 rounded-md text-grey-darker w-full"
-            placeholder="Say something..."
+            placeholder="Hi Dean! Let's talk..."
             rows="8"
           />
 

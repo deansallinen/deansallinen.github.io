@@ -70,18 +70,20 @@ The minimum viable product was a list of all candidates displayed in an table vi
 
 Before our time ran out, we were able to add:
 
-1.  An "Add to Calendar" button which downloaded a .ics file with the date and time of the election.
-2.  A couple of short articles written by our resident historian and political enthusiast @GustavoDestro on the importance of voting and a brief introduction to the B.C. parliamentary system
+1. An "Add to Calendar" button which downloaded a .ics file with the date and time of the election.
+2. A couple of short articles written by our resident historian and political enthusiast @GustavoDestro on the importance of voting and a brief introduction to the B.C. parliamentary system
 
 ![screenshot of site with filter](../img/bcvotes/mockup1-large-dark.png 'Screenshot of BC Votes 2017')
 
 ## Design
 
-Having worked as an election official in previous elections, I've grown to like the simplicity of the design on the ballots. The inspiration for the site's aesthetics came from the ballots we use. Unfortunately it is illegal to take photos of the ballot, otherwise I would have one here to demonstrate.
+Having previously worked as an election official, I've grown to like the simplicity of the design on the ballots. The inspiration for the site's aesthetics came from the ballots we use. Here is a sample ballot from [elections.ca](http://www.elections.ca) :
 
-Kept the colour scheme black and white to avoid any potential bias caused by using party colours. The `<hr>` tags are dotted to represent perforations on the ballots.
+![sample ballot](../img/bcvotes/sample-ballot.jpg)
 
-Also took inspiration from the MIT Technology Review site which has clean typography, a distinct call to action button in the header, and clear information architecture.
+I kept the colour scheme black and white to avoid any potential bias caused by using party colours. The `<hr>` tags are dotted to mimic the perforations on the ballots.
+
+I also took inspiration from the MIT Technology Review site which has clean typography, a distinct call to action button in the header, and clear information architecture.
 
 ![MIT Review homepage](../img/bcvotes/mit-review.png)
 

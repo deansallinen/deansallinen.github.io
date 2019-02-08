@@ -11,29 +11,27 @@ thumb: '../img/thelastskytrain/thelastskytrain-mockup2.png'
 
 ## Simplifying the late night train schedule experience.
 
-Rethinking data visualization as part of a Brainstation Class Project. My challenge was to imagine an alternative to the official transit website that simplifies an existing multi-page workflow while choosing an appropriate taxonomy to enhance usability.
+Rethinking data visualization as part of a Brainstation Class Project.
 
-## Outcome
+My challenge was to imagine an alternative to the official transit website that simplifies an existing multi-page workflow while choosing an appropriate taxonomy to enhance usability.
 
-A single page scrolling site with colour-coded and spatially related information.
+The outcome was a single page site with colour-coded and spatially related information that maps to a user's existing knowledge of the skytrain lines.
 
 ## The Problem
 
-The idea was to improve the experience of finding the time of the last Skytrain.
+Missing the last train out of the downtown core _sucks_. You're either stuck taking a night bus, stopping every block and travelling for hours, or you're spending more money to take a cab, which, depending where you live can be really costly.
+
+The idea was to make it easier than it currently is to find the time of the last available Skytrain. This way, people can plan to be at the Skytrain station before the last train departs.
+
+## Research
 
 Through research, I found that most people who need this information are searching Google on mobile and visiting the official Translink website.
 
 ![Twitter complaints](../img/thelastskytrain/presentation/1.png)
 
-
 Unfortunately, the official website doesn’t prioritize this information or make it easy to find for a first time or infrequent user (Experienced users are able to find this information through recall).
 
-## Research
-
-I began this project by researching the current process of finding the time of the last Skytrain.
-
-Official Website
-existing steps
+![existing steps]()
 
 Even with prior knowledge of the click path to get to the time of the last train, the small text size and poor information architecture make this process difficult on mobile.
 
@@ -62,10 +60,12 @@ Currently: Downtown
 Day: Friday
 Time: 1:00 AM
 
-##### Key Quote
-"lmao once i missed the last skytrain and i had to wander around downtown at 2am looking for a night bus home! not fun!"
+#### Key Quote
 
-##### User Story
+> "One time, I missed the last skytrain and I had to wander around downtown at 2am looking for a night bus home! Not fun!"
+
+#### User Story
+
 Emily is out with friends at the Commodore Ballroom watching a live performance of local rock band Mother Mother. She's had a couple overpriced IPAs and is considering getting another. After all, she's hardly ever downtown and there's no work tomorrow morning!
 
 After a couple of crowd-pleasing encores, the show is letting out and her group of friends are standing outside the doors. Alex and Sarah live in Yaletown and are going to walk home. A couple of others live in Kits and can catch a late night bus. Emily and her friend Katelyn need to catch the Skytrain home, but is it still running? She knows it doesn't run 24 hours, but when is the last train? She needs to find out now if she can make the train or ask Alex or Sarah to crash on their couch.
@@ -96,7 +96,6 @@ The experience map was created for a step by step analysis on what a user, in th
 
 ![experience map](../img/thelastskytrain/experience-map.png)
 
-
 ## Ideation
 
 I began by considering the options available. We could either:
@@ -110,65 +109,56 @@ For this project I decided to move forward with option 3 and create and new webs
 
 ## Why a website and not an app?
 
-Where the users are: our users James and Emily are searching for the train schedule, not an app.
+**Where the users are looking:** our users are searching Google to find the train schedule, not the app store.
 
-A native app requires forethought to download. Emily doesn’t take the train very often, and wouldn’t make the psychological investment in another app for her phone. James wasn’t planning on staying at work this late, and wouldn’t have an app for this purpose.
+**A native app requires forethought to download:** Emily doesn’t take the train very often, and wouldn’t make the psychological investment in another app for her phone. James wasn’t planning on staying at work this late, and wouldn’t have an app for this purpose. Neither would really want to use their data plan to download an app they only use once.
 
-Websites are cross platform. Both our users are mobile, but if we were to develop a native app we would have to code for Android and iPhone. A website would cover their needs and provide desktop support for users who are checking this information from a larger screen (e.g. if James were to check on the concierge iMac before the end of his shift).
+**Websites are cross platform:** Both our users are mobile, but if we were to develop a native app we would have to code for Android and iPhone. A website would cover their needs and provide desktop support for users who are checking this information from a larger screen (e.g. if James were to check on the concierge iMac before the end of his shift).
 
-Development would be easier and faster. HTML and CSS with some Javascript is cheaper and easier than writing native applications.
+## Why a new site and not a redesign of the official site?
 
-train lines
-Nope.
-timeline view
-Nope.
-low fidelity mockup
-Yep.
+**Be the change you want to see:** a new site is something that can be designed, developed, and released to solve this real-world problem independently of Translink. This will allow us to build a product that takes a concept and implements a solution. Ideally, Translink would reconsider the UX of their site and make changes themsellves. In the meantime, we can help these users ourselves.
 
-Why a new site and not a redesign of the official site?
-Be the change you want to see: a new site is something that can be designed, developed, and released to solve this real-world problem independently of Translink. This will allow us to build a product that takes a concept and implements a solution. Ideally, Translink would consider the UX of their site. In the meantime, we can help these users ourselves.
-
-Reduced constraints: admittedly, this is a double edged sword. Without constraints of existing branding, site structure, and content it gives license for more creative solutions. However, starting from scratch means that more difficult decisions need to be made which would have already be taken care of by working inside an existing framework.
-
-The proposed design doesn’t preclude integration into the official website. If Translink likes the solution, the unofficial website could be folded in to the official one. As long as the user’s needs are being met!
-
-## Process
+**Reduced constraints:** admittedly, this is a double edged sword. Without constraints of existing branding, site structure, and content, it gives license for more creative solutions. However, starting from scratch means that more difficult decisions need to be made which would have already be taken care of by working inside a pre-existing framework.
 
 ## Inspiration
 
-Early sketches were inspired by the "Transit" app, another valuable resource for any commuter.
+![inspiration]( 'Transit app, available on iOS and Android.')
+Early sketches were inspired by the [Transit]() app, another valuable resource for any commuter.
 
-There would be a list of train lines with big colourful buttons including the time of the last train.
+There could be a list of train lines with big colourful buttons including the time of the last train.
 
-Transit app inspiration
-Transit app, available on iOS and Android.
-Initial Sketches
+![Original sitemap](../img/thelastskytrain/presentation/3.png)
+
 Initially the concept involved having a page for each station, organized by line, with each line visible on the home page.
 
 A user could click through from the homepage to the appropriate line, see the information they require, and click down to the station if they needed more info.
 
-train lines
+![Initial Sketches](../img/thelastskytrain/presentation/4.png)
+
 Main page with colour-coded service lines.
-timeline view
+
 Line view with station name and departure time.
-low fidelity mockup
+
 Station view with all lines and associated departure times.
-Initial Wireframes
+
 Early feedback indicated that the station view was redundant. Once a user entered the line view, their questions had already been answered.
 
-low fidelity mockup
 V1 - Tapping on a train line would take the user to the line view.
 The idea was based around progressive disclosure so that users looking for the departure time from the initial station had that information immediately.
 
-medium fidelity mockup
 V2 - Better affordances on the buttons should allow for easier discoverability.
-Prototype
+
 User Testing
+
 Hypotheses
+
 Users should be able to find the relevant Skytrain line in the Home view
 Users should be able to click on that line to find the Line view
 Users should be able to use the Line view to find the departure time at their nearest station
+
 Methodology
+
 The first test was conducted in an interview style. Participants were asked to imagine themselves at a certain station, eg. Granville, and navigate to their home station, eg. Lougheed.
 
 They were asked to verbally walk through their thought process throughout the experiment.
@@ -220,16 +210,16 @@ Users who are downtown, like James and Emily, are closer to the beginning of the
 
 The second prototype:
 
-![second prototype](../img/thelastskytrain/prototype-2.webm)
-
-
 Hmm... looks like a lot of scrolling...
+
 Future Directions
+
 Revised Testing
 Users should be able to quickly find their nearest station and the time of departure.
 Users should be able to switch directions of the line
 Users should be able to switch to a different line
 The different lines on the page should be distinct enough to not cause confusion
+
 Methodology
 In an attempt to get into the mindset of Emily, I will be testing users after they consumed a similar amount of alcohol.
 
@@ -243,4 +233,4 @@ If not, then elements of the two can be combined to create a hybrid design with 
 
 ## Learning Outcomes
 
-This project has been instrumental in teaching the value of testing designs with users early and often. The faster you can get a design idea in front of real users, the less time you waste on creating something that doesn’t solve the problem at hand. -
+This project has been instrumental in teaching the value of testing designs with users early and often. The faster you can get a design idea in front of real users, the less time you waste on creating something that doesn’t solve the problem at hand.

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-grey-darker">
+    <footer className="bg-grey-darker mt-8">
       <div className="flex justify-between max-w-xl mx-auto p-4 md:p-8 text-sm">
         <p className="text-white">Created by Dean Sallinen</p>
         <p>
