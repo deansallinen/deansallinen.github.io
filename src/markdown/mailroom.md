@@ -2,7 +2,7 @@
 path: '/projects/mailroom'
 date: '2018-07'
 title: 'Mailroom'
-tags: ['UX', 'Node', 'Express', 'SQL', 'React']
+tags: ['Node', 'Express', 'SQL', 'React']
 toc: true
 thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---

@@ -1,10 +1,10 @@
 ---
-path: '/projects/ferrytracker'
+path: '/projects/ferrytime'
 date: '2018-11'
 title: 'Ferrytime'
-tags: ['React', 'GraphQL', 'Gatsby', 'PWA', 'UX', 'UI']
+tags: ['React', 'GraphQL', 'MongoDB', 'PWA', 'UX', 'UI']
 toc: false
-thumb: '../img/bcvotes/mockup1-large-dark.png'
+thumb: '../img/ferrytime/three.png'
 ---
 
 ![Ferrytime](../img/ferrytime/three.png 'The Ferrytime PWA')

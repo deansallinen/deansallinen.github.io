@@ -1,8 +1,8 @@
 ---
 path: '/projects/brincao'
 date: '2018-05'
-title: 'Brincao'
-tags: ['UX', 'UI', 'React', 'Gatsby']
+title: 'Brincao Website'
+tags: ['UX', 'UI', 'Gatsby']
 toc: false
 thumb: '../img/bcvotes/mockup1-large-dark.png'
 ---

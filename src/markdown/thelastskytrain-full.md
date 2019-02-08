@@ -4,7 +4,7 @@ date: '2017-03'
 title: 'The Last Skytrain'
 tags: ['UX', 'UI', 'Class Project']
 toc: false
-thumb: '../img/bcvotes/mockup1-large-dark.png'
+thumb: '../img/thelastskytrain/thelastskytrain-mockup2.png'
 ---
 
 ## Simplifying the late night train schedule experience.
