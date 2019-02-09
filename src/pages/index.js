@@ -16,9 +16,9 @@ const IndexPage = ({
   const Card = node => (
     <div
       key={node.id}
-      className="container flex px-4 mx-auto mb-8 md:w-1/2 xl:w-1/3 "
+      className="container flex px-4 mx-auto mb-8 md:w-1/2 xl:w-1/3"
     >
-      <div className="flex flex-col flex-grow justify-between p-4 shadow hover:shadow-lg transition">
+      <div className="flex flex-col flex-grow justify-between p-4 shadow hover:shadow-lg bg-white transition">
         <Img fluid={node.frontmatter.thumb.childImageSharp.fluid} />
         <div>
           <Link className="no-underline " to={node.frontmatter.path}>

@@ -11,8 +11,13 @@ const AboutPage = () => (
       keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
     />
 
-    <div className="flex flex-col md:flex-row items-center">
+    <div className="flex flex-col md:flex-row">
       <div className="">
+        <div
+          className="bg-grey h-32 w-32 mt-12 mx-6 rounded-full float-right"
+          style={{ shapeOutside: 'circle()' }}
+        />
+
         {/* <p className="border-l-4 border-grey-darkest font-serif leading-loose pl-4 text-justify">
           The point is... to live one's life in the full complexity of what one
           is, which is something much darker, more contradictory, more of a
@@ -76,12 +81,7 @@ const AboutPage = () => (
           Send me an email if you are interested in what I do, and we can
           arrange a time to chat.
         </p>
-        <form
-          className="mx-auto md:w-1/2"
-          data-netlify="true"
-          name="contact"
-          method="post"
-        >
+        <form className="" data-netlify="true" name="contact" method="post">
           <input type="hidden" name="form-name" value="contact" />
 
           <label

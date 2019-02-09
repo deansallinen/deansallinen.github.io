@@ -9,17 +9,19 @@ const Header = ({ siteTitle }) => (
         <span className="font-bold text-xl ">{siteTitle}</span>
       </Link>
 
-      <nav className="flex items-center text-sm">
+      <nav className="flex items-baseline text-sm">
         <Link
           to="/"
-          className="inline-block mr-6 no-underline text-grey-darkest"
+          className="inline-block py-1 mr-6 no-underline text-grey-darkest"
+          activeClassName="border-b-2 border-grey-darker hover:border-grey-darkest"
         >
           Home
         </Link>
 
         <Link
           to="/about"
-          className="inline-block no-underline text-grey-darkest"
+          className="inline-block py-1 no-underline text-grey-darkest"
+          activeClassName="border-b-2 border-grey-darker hover:border-grey-darkest"
         >
           About
         </Link>
