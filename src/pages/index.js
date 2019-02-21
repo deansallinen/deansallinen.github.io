@@ -10,28 +10,32 @@ const IndexPage = ({
     allMarkdownRemark: { edges },
   },
 }) => {
-  const Tags = ({ tags }) =>
-    tags.map(tag => <span className="mr-2">{tag}</span>);
+  const Tags = ({ tags }) => tags.map(tag => <div className="mr-4">{tag}</div>);
 
   const Card = node => (
     <div
       key={node.id}
       className="container flex px-4 mx-auto mb-8 md:w-1/2 xl:w-1/3"
     >
-      <div className="flex flex-col flex-grow justify-between p-4 shadow hover:shadow-lg bg-white transition">
-        <Img fluid={node.frontmatter.thumb.childImageSharp.fluid} />
-        <div>
-          <Link className="no-underline " to={node.frontmatter.path}>
-            <h3 className="text-grey-darkest hover:underline">
-              {node.frontmatter.title}
-            </h3>
-          </Link>
-          <div className="text-grey text-sm">
-            <Tags tags={node.frontmatter.tags} />
-          </div>
-        </div>
+      <div className="flex flex-col flex-grow justify-between px-6 py-6 shadow hover:shadow-lg bg-white transition rounded">
+        <Link
+          className="flex flex-grow no-underline "
+          to={node.frontmatter.path}
+        >
+          <div className="flex flex-col flex-grow justify-between">
+            <Img fluid={node.frontmatter.thumb.childImageSharp.fluid} />
+            <div className="mt-4">
+              <h3 className="mb-3 text-grey-darkest hover:underline">
+                {node.frontmatter.title}
+              </h3>
+              <div className="text-grey text-sm flex flex-wrap">
+                <Tags tags={node.frontmatter.tags} />
+              </div>
+            </div>
 
-        {/* <p>{node.excerpt}</p> */}
+            {/* <p>{node.excerpt}</p> */}
+          </div>
+        </Link>
       </div>
     </div>
   );

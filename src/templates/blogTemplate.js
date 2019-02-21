@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-import '../css/article.css';
+import markdownStyles from '../css/article.module.css';
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -19,7 +19,7 @@ export default function Template({
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
           <div
-            className="blog-post-content"
+            // className={markdownStyles}
             dangerouslySetInnerHTML={{ __html: html }}
           />
         </div>

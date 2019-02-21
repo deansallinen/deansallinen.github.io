@@ -2,7 +2,6 @@ import React from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import dogIllustration from '../images/dog-illustration.svg';
 
 const AboutPage = () => (
   <Layout>
@@ -14,7 +13,7 @@ const AboutPage = () => (
     <div className="flex flex-col md:flex-row">
       <div className="">
         <div
-          className="bg-grey h-32 w-32 mt-12 mx-6 rounded-full float-right"
+          className="bg-grey h-32 w-32 mt-12 mx-8 rounded-full float-right"
           style={{ shapeOutside: 'circle()' }}
         />
 
@@ -53,35 +52,25 @@ const AboutPage = () => (
           this experience when designing for end users.
         </p>
         <p>
-          I studied Psychology and Linguistics at SFU and I use my research and
-          interviewing skills throughout the design process.
+          I studied Psychology and Linguistics at SFU and User Experience/User
+          Interface Design at Brainstation Vancouver.
         </p>
         <p>
           When I’m not working on my side projects I enjoy learning the guitar,
           discovering new gluten-free restaurants, hiking, camping and reading.
         </p>
-        <h4>
-          <a id="Education_14" />
-          Education
-        </h4>
-        <ul>
-          <li>Brainstation, User Experience and User Interface Design</li>
-          <li>Simon Fraser University, B.A. Psychology</li>
-          <li>Simon Fraser University, Certificate of Liberal Arts</li>
-        </ul>
-        <h2>
-          <a id="Get_in_touch_20" />
-          Get in touch!
-        </h2>
+        <h2 className="mt-24">Get in touch!</h2>
         <p>
           Whether it’s feedback on one of my projects or an idea you want to
           collaborate on, I would love to hear from you!
         </p>
-        <p>
-          Send me an email if you are interested in what I do, and we can
-          arrange a time to chat.
-        </p>
-        <form className="" data-netlify="true" name="contact" method="post">
+        <p>Send me an email through the form below if you want to chat:</p>
+        <form
+          className="mt-8 max-w-md "
+          data-netlify="true"
+          name="contact"
+          method="post"
+        >
           <input type="hidden" name="form-name" value="contact" />
 
           <label
@@ -95,7 +84,7 @@ const AboutPage = () => (
             className="appearance-none block bg-grey-lighter mb-6 p-3 rounded-md text-grey-darker w-full"
             id="name"
             type="text"
-            placeholder="Bill"
+            placeholder="Bill Gates"
             name="name"
           />
 
@@ -110,7 +99,7 @@ const AboutPage = () => (
             className="appearance-none block bg-grey-lighter mb-6 p-3 rounded-md text-grey-darker w-full"
             id="email"
             type="email"
-            placeholder="Bill@example.com"
+            placeholder="bill@microsoft.com"
             name="email"
           />
 
@@ -134,21 +123,6 @@ const AboutPage = () => (
             Submit
           </button>
         </form>
-
-        <p>You can also find me on:</p>
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/dean-sallinen-39547a52/">
-              LinkedIn
-            </a>
-          </li>
-          <li>
-            <a href="http://twitter.com/deansallinen">Twitter</a>
-          </li>
-          <li>
-            <a href="https://www.github.com/deansallinen">GitHub</a>
-          </li>
-        </ul>
       </div>
     </div>
   </Layout>
