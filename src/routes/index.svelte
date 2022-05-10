@@ -1,11 +1,13 @@
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Dean Sallinen</title>
+	<meta name="description" content="The personal website of Dean Sallinen" />
 </svelte:head>
 
 <section>
-	<h1> Dean Sallinen</h1>
+	<h1>Dean Sallinen</h1>
+
+	<h2>Hi, I’m Dean. 👋</h2>
 
 </section>
 
