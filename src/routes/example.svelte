@@ -24,6 +24,7 @@
         grid-template-areas: "stack";
         height: 100vh;
         width: 100%;
+        color: #fff;
     }
 
     .hero > * {
