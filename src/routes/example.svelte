@@ -15,7 +15,7 @@
 </div>
 
 <style>
-    html, body {
+    :global(html, body) {
         margin: 0;
     }
 
@@ -27,7 +27,7 @@
     }
 
     .hero > * {
-        grid-area: "stack";
+        grid-area: stack;
     }
 
     .hero video {
@@ -35,7 +35,7 @@
         object-fit: cover;
     }
 
-    .hero.caption {
+    .hero .caption {
         place-self: center;
     }
 </style>
