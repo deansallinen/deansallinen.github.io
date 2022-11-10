@@ -10,7 +10,7 @@
   >.
 </p>
 <p>
-  I'm always thinking: "How can I use my skills make the overall experience
+  I'm always thinking: "How can I use my skills to make the overall experience
   better for our users?"
 </p>
 <p>
