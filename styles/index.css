@@ -1,0 +1,140 @@
+@import "reset.css";
+@import "layout.css";
+
+/* GLOBAL STYLES */
+
+:root {
+  /* Spacing */
+  --ratio: 1.5;
+  --measure: 60ch;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+
+  /* Typography */
+  --fs-100: clamp(0.69rem, calc(0.64rem + 0.27vw), 0.84rem);
+  --fs-200: clamp(0.83rem, calc(0.73rem + 0.53vw), 1.13rem);
+  --fs-300: clamp(1rem, calc(0.82rem + 0.91vw), 1.5rem);
+  --fs-400: clamp(1.2rem, calc(0.91rem + 1.45vw), 2rem);
+  --fs-500: clamp(1.44rem, calc(0.99rem + 2.23vw), 2.67rem);
+  --fs-600: clamp(1.73rem, calc(1.06rem + 3.32vw), 3.55rem);
+  --fs-700: clamp(2.07rem, calc(1.11rem + 4.84vw), 4.74rem);
+  --fs-800: clamp(2.49rem, calc(1.1rem + 6.95vw), 6.31rem);
+
+  /* Colors */
+  --white: hsl(0, 0%, 100%);
+  --color-neutral-50: hsl(0, 0%, 90%);
+  --color-neutral-100: hsl(0, 0%, 80%);
+  --color-neutral-200: hsl(0, 0%, 70%);
+  --color-neutral-300: hsl(0, 0%, 60%);
+  --color-neutral-400: hsl(0, 0%, 50%);
+  --color-neutral-500: hsl(0, 0%, 40%);
+  --color-neutral-600: hsl(0, 0%, 30%);
+  --color-neutral-700: hsl(0, 0%, 20%);
+  --color-neutral-800: hsl(0, 0%, 10%);
+  --color-neutral-900: hsl(0, 0%, 5%);
+  --black: hsl(0, 0%, 0%);
+
+  --color-primary: var(--color-primary-800);
+  --color-primary-50: hsl(226, 31%, 97%);
+  --color-primary-100: hsl(226, 31%, 89%);
+  --color-primary-200: hsl(226, 31%, 79%);
+  --color-primary-300: hsl(226, 31%, 69%);
+  --color-primary-400: hsl(226, 31%, 59%);
+  --color-primary-500: hsl(226, 31%, 49%);
+  --color-primary-600: hsl(226, 31%, 39%);
+  --color-primary-700: hsl(226, 31%, 29%);
+  --color-primary-800: hsl(226, 31%, 19%);
+  --color-primary-900: hsl(226, 31%, 9%);
+
+  --heading-color: var(--color-primary);
+  --text-color: var(--color-primary);
+  --surface-color: var(--color-neutral-50);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --heading-color: var(--color-primary-200);
+    --text-color: var(--color-primary-300);
+    --surface-color: var(--color-neutral-900);
+  }
+}
+
+/* Horizontal constraints for readability, using an exception-based approach */
+* {
+  max-inline-size: var(--measure);
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+html {
+  color: var(--text-color);
+  font-size: var(--fs-300);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h1,
+h2 {
+  color: var(--heading-color);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: var(--fs-400);
+}
+
+/* Utility */
+/* Block */
+a {
+  color: var(--color-primary-400);
+  font-weight: 800;
+  font-size: inherit;
+}
+
+a:hover {
+  color: var(--color-primary-500);
+}
+
+a[role="button"] {
+  background-color: var(--button-color, var(--color-primary));
+  color: var(--color-primary-100);
+  text-decoration: none;
+  padding-inline: 1.25em;
+  padding-block: 0.25em;
+  border-radius: var(--s-2);
+}
+
+a[role="button"]:active {
+  transform: scale(95%);
+}
+
+a[role="button"]:hover {
+  background-color: var(--color-primary-500);
+}
+
+.link-card {
+  list-style: none;
+}
+
+/* Exceptions */
+h1 span {
+  color: var(--color-primary-500);
+}
