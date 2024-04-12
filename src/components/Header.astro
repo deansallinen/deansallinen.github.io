@@ -4,14 +4,32 @@ import { SITE_TITLE } from "../consts";
 ---
 
 <header class="mt-8 mb-12">
-  <nav class="flex justify-between max-w-4xl mx-auto">
-    <h2><a href="/">{SITE_TITLE}</a></h2>
+  <nav class="flex flex-wrap gap-2 justify-between max-w-4xl mx-auto">
+    <h2 class="shrink-0 font-bold"><a href="/">{SITE_TITLE}</a></h2>
     <div class="space-x-4">
       <HeaderLink href="/">Home</HeaderLink>
       <HeaderLink href="/blog">Blog</HeaderLink>
-      <a href="https://github.com/deansallinen/" target="_blank">
-        Github &rarr;</a
+      <a
+        class="inline-flex gap-2"
+        href="https://github.com/deansallinen/"
+        target="_blank"
       >
+        Github
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+          ></path>
+        </svg>
+      </a>
     </div>
   </nav>
 </header>

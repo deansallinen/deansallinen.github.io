@@ -1,79 +1,137 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4);
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="max-w-2xl mx-auto">
-    <Header />
-    <main class="prose dark:prose-invert">
-      <h1 class="text-2xl font-bold">Hello, I'm Dean!</h1>
+<Layout>
+  <main class="prose dark:prose-invert">
+    <h1 class="text-2xl font-bold">Hello, I'm Dean!</h1>
 
-      <p>I like to code, design, and tinker with new technology.</p>
-      <p>
-        I'm currently a Frontend Developer at
-        <a href="https://greymass.com" class="underline">Greymass</a>.
-      </p>
+    <p>I like to code, design, and tinker with new technology.</p>
+    <p>
+      I'm currently a Frontend Developer at
+      <a href="https://greymass.com" class="underline">Greymass</a>.
+    </p>
 
-      <div>
-        <p>Here are some projects I've worked on recently:</p>
-        <ul class="list-disc my-2 space-y-2">
-          <li>
-            <a class="hover:underline" href="https://greymass.com/anchor">
-              Anchor Android <span>&rarr;</span>
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="https://wharfkit.com">
-              WharfKit.com <span>&rarr;</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="hover:underline"
-              href="https://github.com/wharfkit/web-renderer"
+    <div>
+      <p>Here are some projects I've worked on recently:</p>
+      <ul class="list-disc my-2 space-y-2">
+        <li>
+          <a class="flex gap-2" href="https://greymass.com/anchor">
+            Anchor Android
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
             >
-              WharfKit UI <span>&rarr;</span>
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="https://greymass.com">
-              Greymass.com <span>&rarr;</span>
-            </a>
-          </li>
-          <li>
-            <a class="hover:underline" href="https://www.brincao.com.br">
-              Brincao.com.br <span>&rarr;</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="flex gap-2" href="https://wharfkit.com">
+            WharfKit.com
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="flex gap-2" href="https://github.com/wharfkit/web-renderer">
+            WharfKit UI
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="flex gap-2" href="https://greymass.com">
+            Greymass.com
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              ></path>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a class="flex gap-2" href="https://www.brincao.com.br">
+            Brincao.com.br
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+              ></path>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-      <div>
-        <p>Here are some things I've written recently</p>
-        <ul class="my-2 space-y-2">
-          {
-            posts.map((post) => (
-              <li>
-                <a class="hover:underline" href={`/blog/${post.slug}/`}>
-                  <FormattedDate date={post.data.pubDate} /> - {post.data.title}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </main>
-  </body>
-</html>
+    <div>
+      <p>Here are some things I've written recently</p>
+      <ul class="my-2 space-y-2">
+        {
+          posts.map((post) => (
+            <li>
+              <a href={`/blog/${post.slug}/`}>
+                <FormattedDate date={post.data.pubDate} /> - {post.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</Layout>
