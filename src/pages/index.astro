@@ -1,0 +1,79 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Header from "../components/Header.astro";
+
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="max-w-2xl mx-auto">
+    <Header />
+    <main class="prose dark:prose-invert">
+      <h1 class="text-2xl font-bold">Hello, I'm Dean!</h1>
+
+      <p>I like to code, design, and tinker with new technology.</p>
+      <p>
+        I'm currently a Frontend Developer at
+        <a href="https://greymass.com" class="underline">Greymass</a>.
+      </p>
+
+      <div>
+        <p>Here are some projects I've worked on recently:</p>
+        <ul class="list-disc my-2 space-y-2">
+          <li>
+            <a class="hover:underline" href="https://greymass.com/anchor">
+              Anchor Android <span>&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a class="hover:underline" href="https://wharfkit.com">
+              WharfKit.com <span>&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="hover:underline"
+              href="https://github.com/wharfkit/web-renderer"
+            >
+              WharfKit UI <span>&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a class="hover:underline" href="https://greymass.com">
+              Greymass.com <span>&rarr;</span>
+            </a>
+          </li>
+          <li>
+            <a class="hover:underline" href="https://www.brincao.com.br">
+              Brincao.com.br <span>&rarr;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p>Here are some things I've written recently</p>
+        <ul class="my-2 space-y-2">
+          {
+            posts.map((post) => (
+              <li>
+                <a class="hover:underline" href={`/blog/${post.slug}/`}>
+                  <FormattedDate date={post.data.pubDate} /> - {post.data.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>

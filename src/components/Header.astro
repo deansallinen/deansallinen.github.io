@@ -1,0 +1,17 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<header class="mt-8 mb-12">
+  <nav class="flex justify-between max-w-4xl mx-auto">
+    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <div class="space-x-4">
+      <HeaderLink href="/">Home</HeaderLink>
+      <HeaderLink href="/blog">Blog</HeaderLink>
+      <a href="https://github.com/deansallinen/" target="_blank">
+        Github &rarr;</a
+      >
+    </div>
+  </nav>
+</header>
