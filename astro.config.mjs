@@ -8,4 +8,3 @@ export default defineConfig({
   site: "https://deansallinen.ca",
   integrations: [mdx(), sitemap(), tailwind()],
 });
-
