@@ -1,3 +1,5 @@
+https://slashpages.net/
+
 # Astro Starter Kit: Blog
 
 ```sh
