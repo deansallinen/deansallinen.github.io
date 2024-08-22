@@ -249,6 +249,8 @@ fi
 use flake
 ```
 
+Note: you'll need to add the changes in git otherwise you'll get some error stating flake.nix is not found. `git add -A && git commit -m "Add flake.nix"` worked for me.
+
 Now with all of that set up, when I `cd` into my project directory I get a change to my prompt confirming my environment is setup.
 
 ```bash
