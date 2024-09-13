@@ -136,9 +136,9 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"first-post.md": {
-	id: "first-post.md";
-  slug: "first-post";
+"nixos-react-native-android.md": {
+	id: "nixos-react-native-android.md";
+  slug: "nixos-react-native-android";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

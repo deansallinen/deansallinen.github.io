@@ -4,23 +4,21 @@ description: "Here's how I setup my NixOS for React Native Android development."
 pubDate: 'Apr 12 2024'
 ---
 
+EDIT - Sep 13, 2024 - I needed up upgrade to SDK 34 so I took the opportunity to rework the flake.nix and devshell.nix a bit. 
 
-Here's how I setup my NixOS for React Native Android development. 
+Here's how I got a working setup for React Native Android development on NixOS. 
 
-First off: is this the best setup? No, probably not. I don't know what I'm doing when it comes to Nix or NixOS. The combination here just happens to (finally) work for me. Once I learn more about Nix and NixOS I'll optimize and make changes. Hopefully I'll remember to update this post too.
+First off, is this the best setup? No. I still don't really know what I'm doing when it comes to Nix or NixOS. The combination here just happens to  work for me. Once I learn more about Nix and NixOS I'll optimize and make changes. Hopefully I'll remember to update this post too.
 
+Why do this? My pop_os install broke when upgrading nvidia drivers and I had a drive failure when trying to recover from backup. Since I had to install an OS from scratch anyway, it seemed like a good opportunity to try something new. I'd heard about NixOS and fell in love with the idea of a declarative configuration. I already have some experience with immutable operating systems from running Fedora Silverblue on my laptop, so I thought it would be a great time to try Nix.
 
-Why do this? My pop_os install broke when upgrading nvidia drivers and I had a drive failure when trying to recover. Since I had to install an OS from scratch, it seemed like a good opportunity to try something new. I'd heard about NixOS and fell in love with the idea of a configuration file for everything. I already have some experience with immutable operating systems from running Fedora Silverblue on my laptop, so I thought it would be a great time to try Nix.
-
-Once I figured out basic system configuration, I needed to get my environment setup to develop a react native android application for my day job.
-
-
+Once I figured out basic system configuration, I needed to get my environment setup to develop a react native android application for work.
 
 ## System configuration
 
 Starting with the system wide configuration file. I enabled the `adb` program, included the `android-udev-rules`, setup flakes, and included my user in the `plugdev` and `adbuser` groups. 
 
-I also added `node`, `yarn`, and `prettierd` here but I don't know if this is the best place to keep them. It works for now.
+I also added `node`, `yarn`, and `prettierd` here but they should go in the project flake (I just haven't moved them yet).
 
 ```nix
 # /etc/nixos/configuration.nix
@@ -58,16 +56,16 @@ I also added `node`, `yarn`, and `prettierd` here but I don't know if this is th
     gcc # c compiler - not sure if needed, including anyways
     alejandra # .nix formatting
     wl-clipboard # clipboard integration
-    nodejs_20 # Should this live here or in home-manager?
-    nodePackages.yarn # Same with this?
-    prettierd # And this?
-    # android-tools # Couldn't get this to work. Doesn't add udev rules.
+    nodejs_20 # This should be moved to the project flake
+    nodePackages.yarn # Same with this
+    prettierd # And this
+    # android-tools # Couldn't get this to work: Doesn't add udev rules.
   ];
 
-  # This is the one that correctly adds the udev rules
+  # This is the one that correctly adds the udev rules!
   programs.adb.enable = true;
 
-  # Not sure if this is necessary if the above is set.
+  # Not sure if this is necessary if the above is set?
   services.udev.packages = [
 	pkgs.android-udev-rules
   ];
@@ -116,7 +114,7 @@ Note: The versions listed are specific to my project.
 # ~/code/my-react-native-project/flake.nix
 
 {
-  description = "My Android project";
+  description = "My React Native project";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
@@ -139,7 +137,6 @@ Note: The versions listed are specific to my project.
     }
     // flake-utils.lib.eachSystem ["aarch64-darwin" "x86_64-darwin" "x86_64-linux"] (
       system: let
-        inherit (nixpkgs) lib;
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
@@ -148,41 +145,34 @@ Note: The versions listed are specific to my project.
             self.overlay
           ];
         };
-      in {
-        packages =
-          {
-            android-sdk = android.sdk.${system} (sdkPkgs:
-              with sdkPkgs;
-                [
-                  # Useful packages for building and testing.
-                  build-tools-33-0-0 # This version is specific to my project
-                  build-tools-30-0-3 # This version is specific to my project
-                  cmdline-tools-latest
-                  emulator
-                  platform-tools
-                  platforms-android-33 # This version is specific to my project
 
-                  # Other useful packages for a development environment.
-                  ndk-23-1-7779620 # This version is specific to my project
-                  # skiaparser-3
-                  # sources-android-34
-                ]
-                ++ lib.optionals (system == "aarch64-darwin") [
-                  # system-images-android-34-google-apis-arm64-v8a
-                  # system-images-android-34-google-apis-playstore-arm64-v8a
-                ]
-                ++ lib.optionals (system == "x86_64-darwin" || system == "x86_64-linux") [
-                  # system-images-android-34-google-apis-x86-64
-                  # system-images-android-34-google-apis-playstore-x86-64
-                ]);
-          }
-          // lib.optionalAttrs (system == "x86_64-linux") {
-            # Android Studio in nixpkgs is currently packaged for x86_64-linux only.
-            android-studio = pkgs.androidStudioPackages.stable;
-            # android-studio = pkgs.androidStudioPackages.beta;
-            # android-studio = pkgs.androidStudioPackages.preview;
-            # android-studio = pkgs.androidStudioPackage.canary;
-          };
+        androidConfig = {
+          defaultBuildToolsVersion = "34.0.0"; # This value can be passed to the devshell in the future
+          sdkPkgs = android.sdk.${system} (sdkPkgs:
+            with sdkPkgs; [
+              # Useful packages for building and testing.
+              build-tools-34-0-0
+              cmdline-tools-latest
+              emulator
+              platform-tools
+              platforms-android-34
+
+              # Other useful packages for a development environment.
+              ndk-26-1-10909125
+              # skiaparser-3
+              sources-android-34
+            ]);
+        };
+      in {
+        packages = {
+          android-sdk = androidConfig.sdkPkgs;
+
+          # Android Studio in nixpkgs is currently packaged for x86_64-linux only.
+          android-studio = pkgs.androidStudioPackages.stable;
+          # android-studio = pkgs.androidStudioPackages.beta;
+          # android-studio = pkgs.androidStudioPackages.preview;
+          # android-studio = pkgs.androidStudioPackage.canary;
+        };
 
         devShell = import ./devshell.nix {inherit pkgs;};
       }
@@ -193,17 +183,13 @@ Note: The versions listed are specific to my project.
 
 In `devshell.nix` we create a new shell environment with all the required packages and environment variables. 
 
-Note: I've hardcoded in a version number in GRADLE_OPTS. Not ideal, but it works for now.
-
 
 ```nix
 # ~/code/my-react-native-project/devshell.nix
 
+# Documentation: https://github.com/numtide/devshell
 {pkgs}:
 with pkgs;
-# Configure your development environment.
-#
-# Documentation: https://github.com/numtide/devshell
   devshell.mkShell {
     name = "android-project";
     motd = ''
@@ -220,20 +206,35 @@ with pkgs;
       }
       {
         name = "JAVA_HOME";
-        value = jdk11.home; # Needed to set this to jdk11 for my project
+        value = jdk17.home;
       }
       {
         name = "GRADLE_OPTS";
-        # Had to add 33.0.0 to match the build-tools-33-0-0 sdkPkg 
-        # There should be a way to pass this from flake.nix but I don't know how yet
-        value = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${android-sdk}/share/android-sdk/build-tools/33.0.0/aapt2";
+        value = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${aapt}/bin/aapt2"; # Using the nixpkgs aapt2 to resolve an issue with dynamically linked executables
+      }
+      {
+        name = "PATH";
+        prefix = "${android-sdk}/share/android-sdk/emulator";
+      }
+      {
+        name = "PATH";
+        prefix = "${android-sdk}/share/android-sdk/platform-tools";
+      }
+    ];
+    commands = [
+      {
+        help = "take screenshot of connected android device";
+        name = "adbcap";
+        command = "adb exec-out screencap -p > /tmp/screen-$(date +%Y-%m-%d-%H.%M.%S).png";
       }
     ];
     packages = [
       android-studio
       android-sdk
       gradle
-      jdk11 # Needed to set this to jdk11 for my project
+      jdk17
+      aapt
+      # here is where I'd add nodejs and yarn 
     ];
   }
 ```
