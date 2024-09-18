@@ -5,8 +5,6 @@ pubDate: 'Apr 12 2024'
 updatedDate: 'Sep 13 2024'
 ---
 
-EDIT:  I needed up upgrade to SDK 34 so I took the opportunity to rework the flake.nix and devshell.nix a bit. 
-
 Here's how I got a working setup for React Native Android development on NixOS. 
 
 First off, is this the best setup? No. I still don't really know what I'm doing when it comes to Nix or NixOS. The combination here just happens to  work for me. Once I learn more about Nix and NixOS I'll optimize and make changes. Hopefully I'll remember to update this post too.

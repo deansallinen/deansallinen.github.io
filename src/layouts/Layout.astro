@@ -17,8 +17,10 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = "/favicon.sv
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="max-w-2xl px-4 mx-auto">
+  <body class="max-w-2xl px-4 mx-auto mb-8">
     <Header />
+    <main class="prose prose-sm dark:prose-invert ">
     <slot />
+    </main>
   </body>
 </html>

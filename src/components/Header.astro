@@ -1,15 +1,32 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+
+const menu = [
+  {href: '/uses', text: "Uses"},
+  {href: '/wrote', text: "Wrote"},
+  {href: '/now', text: "Now"},
+]
 ---
 
 <header class="mt-4 mb-8">
   <nav class="flex flex-wrap gap-2 justify-between max-w-4xl mx-auto">
-    <h2 class="shrink-0 font-bold"><a href="/">{SITE_TITLE}</a></h2>
-    <div class="space-x-2">
-      <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="https://github.com/deansallinen/" target="_blank">Github</HeaderLink>
-    </div>
+    <h2 class="text-xl shrink-0 font-bold"><a href="/">{SITE_TITLE}</a></h2>
+    <nav>
+      <menu class='flex gap-4'>
+        {
+        menu.map((item) => (
+        <li>
+          <a href={ item.href } class={pathname === item.href ? 'underline underline-offset-8 ' : ''}>
+            {item.text}
+          </a>
+        </li>
+        ))
+        }
+      </menu>
+    </nav>
   </nav>
 </header>

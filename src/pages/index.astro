@@ -10,6 +10,10 @@ const posts = (await getCollection("blog"))
 
 const projects = [
   {
+    name: "Unicove 2.0",
+    url: "https://v2.unicove.com/",
+  },
+  {
     name: "Anchor Android",
     url: "https://greymass.com/anchor",
   },
@@ -34,15 +38,16 @@ const projects = [
 ---
 
 <Layout>
-  <main class="prose leading-normal dark:prose-invert">
+  <main class="leading-normal space-y-6 ">
     <p>
       I'm currently a Frontend Developer at
-      <a href="https://greymass.com" class="underline">Greymass</a> where I like to 
-      code, design, and tinker with new technology.
+      <a href="https://greymass.com" class="underline">Greymass</a> 
+      where I code, design, and tinker with new technology.
     </p>
 
-    <div class='mt-6'>
-      <span>Recent projects:</span>
+    <section>
+    <p>You can find me on <a href="https://github.com/deansallinen">Github</a> where I've been working on these projects and more</p>
+
       <ul class="list-disc my-2 space-y-2">
         {
           projects.map((project) => (
@@ -55,21 +60,21 @@ const projects = [
           ))
         }
       </ul>
-    </div>
+    </section>
 
-    <div class='mt-6'>
-      <span>Recent writing:</span>
+    <section>
+      <span>Recent writing</span>
       <ul class="my-2 space-y-2">
         {
           posts.map((post) => (
             <li>
-              <a href={`/blog/${post.slug}/`}>
+              <a href={`/wrote/${post.slug}/`}>
                 <FormattedDate date={post.data.pubDate} /> - {post.data.title}
               </a>
             </li>
           ))
         }
       </ul>
-    </div>
+    </section>
   </main>
 </Layout>
