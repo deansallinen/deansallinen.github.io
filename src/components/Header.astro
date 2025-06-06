@@ -1,6 +1,4 @@
 ---
-import { SITE_TITLE } from "../consts";
-
 const path = new URL(Astro.request.url).pathname;
 
 const current = (href: string) => (href === path ? true : undefined);
@@ -12,24 +10,50 @@ const menu = [
 ];
 ---
 
-<header class="mt-4 mb-8">
-  <nav class="flex flex-wrap gap-4 items-center justify-between">
-    <a href="/" class="text-xl shrink-0 font-bold">{SITE_TITLE}</a>
+<header>
+  <a id="title" href="/">Dean Sallinen</a>
 
-    <menu class="flex gap-4">
-      {
-        menu.map(({ href, text }) => (
-          <li>
-            <a
-              href={href}
-              aria-current={current(href)}
-              class="aria-current:underline underline-offset-8"
-            >
-              {text}
-            </a>
-          </li>
-        ))
-      }
-    </menu>
-  </nav>
+  <menu>
+    {
+      menu.map(({ href, text }) => (
+        <li>
+          <a href={href} aria-current={current(href)}>
+            {text}
+          </a>
+        </li>
+      ))
+    }
+  </menu>
 </header>
+
+<style>
+  header {
+    margin-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  #title {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    font-size: var(--font-lg);
+  }
+
+  menu {
+    display: flex;
+    gap: 1rem;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & [aria-current] {
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+    }
+  }
+</style>

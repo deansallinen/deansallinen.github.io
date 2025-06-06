@@ -2,7 +2,7 @@
 layout: ../layouts/Layout.astro
 ---
 
-<h1 class='hidden'>Uses</h1>
+These are some of the tools I use
 
 ## Workstation
 - NixOS on a Ryzen 5 desktop

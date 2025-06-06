@@ -1,2 +1,75 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@import "./normalize.css";
+
+:root {
+  --text-color: light-dark(oklch(0.2 0 0), oklch(1 0 0));
+  --text-muted: light-dark(oklch(0.4 0 0), oklch(0.8 0 0));
+  --font-lg: 1.414rem;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: system-ui;
+  color: var(--text-color);
+  font-size: 1rem;
+  max-width: 80ch;
+  margin-inline: auto;
+}
+
+menu {
+  list-style: none;
+}
+
+li {
+  color: var(--text-muted);
+  margin-block: 0.5rem;
+}
+
+a {
+  color: var(--text-color);
+  text-underline-offset: 0.25rem;
+}
+
+p {
+  color: var(--text-muted);
+  margin-block: 1.5rem;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: var(--font-lg);
+  line-height: 2rem;
+  margin-bottom: 1rem;
+
+  + * {
+    margin-top: 0;
+  }
+}
+
+h2 {
+  font-weight: bold;
+  font-size: var(--font-lg);
+  line-height: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+
+  + * {
+    margin-top: 0;
+  }
+}
+
+pre {
+  padding-inline: 1.25rem;
+  padding-block: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* :root { */
+/*   --step--2: clamp(0.5002rem, 0.5002rem + 0vw, 0.5002rem); */
+/*   --step--1: clamp(0.7072rem, 0.7072rem + 0vw, 0.7072rem); */
+/*   --step-0: clamp(1rem, 1rem + 0vw, 1rem); */
+/*   --step-1: clamp(1.414rem, 1.414rem + 0vw, 1.414rem); */
+/*   --step-2: clamp(1.9994rem, 1.9994rem + 0vw, 1.9994rem); */
+/*   --step-3: clamp(2.8271rem, 2.8271rem + 0vw, 2.8271rem); */
+/*   --step-4: clamp(3.9976rem, 3.9976rem + 0vw, 3.9976rem); */
+/*   --step-5: clamp(5.6526rem, 5.6526rem + 0vw, 5.6526rem); */
+/* } */

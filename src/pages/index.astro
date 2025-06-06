@@ -36,24 +36,24 @@ const projects = [
 ---
 
 <Layout>
-  <main class="leading-normal space-y-6">
+  <main>
     <p>
       I'm a Frontend Developer at
-      <a href="https://greymass.com" class="underline">Greymass</a>
-      - coding, designing, and tinkering
+      <a href="https://greymass.com">Greymass</a>
+      - coding, designing, and tinkering.
     </p>
 
-    <section>
+    <section id="projects">
       <p>
         You can find me on <a href="https://github.com/deansallinen">Github</a> where
-        I've been working on things like
+        I've been working on things like:
       </p>
 
-      <ul class="list-disc my-2 space-y-2">
+      <ul>
         {
           projects.map((project) => (
             <li>
-              <a class="flex gap-2 items-center" href={project.url}>
+              <a href={project.url}>
                 {project.name}
                 <svg viewBox="0 0 24 24" width="16" height="16">
                   <use href="#outbound" />
@@ -65,9 +65,9 @@ const projects = [
       </ul>
     </section>
 
-    <section>
-      <span>Recent writing</span>
-      <ul class="my-2 space-y-2">
+    <section id="posts">
+      <p>Recent writing</p>
+      <ul>
         {
           posts.map((post) => (
             <li>
@@ -81,3 +81,12 @@ const projects = [
     </section>
   </main>
 </Layout>
+
+<style>
+  #projects ul a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    max-width: fit-content;
+  }
+</style>

@@ -15,10 +15,10 @@ interface Props {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="color-scheme" content="dark light" />
+    <meta name="color-scheme" content="light dark" />
     <title>Dean Sallinen</title>
   </head>
-  <body class="max-w-2xl px-4 mx-auto mb-8">
+  <body class="max-w-2xl mx-auto">
     <svg id="sprites" xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <defs>
         <g id="outbound" fill="none" stroke-width="1.5" stroke="currentColor">
@@ -31,8 +31,13 @@ interface Props {
       </defs>
     </svg>
     <Header />
-    <main class="prose prose-sm dark:prose-invert">
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
+
+<style>
+  body {
+    padding-inline: 2rem;
+    margin-bottom: 4rem;
+  }
+</style>
