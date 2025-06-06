@@ -1,12 +1,12 @@
 ---
-const path = new URL(Astro.request.url).pathname;
+const { pathname } = Astro.url;
 
-const current = (href: string) => (href === path ? true : undefined);
+const current = (href: string) => (href === pathname ? "page" : "false");
 
 const menu = [
-  { href: "/uses", text: "Uses" },
-  { href: "/wrote", text: "Wrote" },
-  { href: "/now", text: "Now" },
+  { href: "/uses/", text: "Uses" },
+  { href: "/wrote/", text: "Wrote" },
+  { href: "/now/", text: "Now" },
 ];
 ---
 
@@ -51,7 +51,7 @@ const menu = [
       text-decoration: none;
     }
 
-    & [aria-current] {
+    & [aria-current="page"] {
       text-decoration: underline;
       text-underline-offset: 0.5rem;
     }
