@@ -17,6 +17,8 @@ body {
 
 menu {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
@@ -27,6 +29,7 @@ li {
 a {
   color: var(--text-color);
   text-underline-offset: 0.25rem;
+  overflow-wrap: break-word;
 }
 
 p {
