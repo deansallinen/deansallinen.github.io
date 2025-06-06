@@ -9,7 +9,11 @@ interface Props {
   image?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION, image = "/favicon.svg" } = Astro.props;
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = "/favicon.svg",
+} = Astro.props;
 ---
 
 <!doctype html>
