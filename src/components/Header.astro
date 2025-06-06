@@ -1,8 +1,9 @@
 ---
 import { SITE_TITLE } from "../consts";
 
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
+const path = new URL(Astro.request.url).pathname;
+
+const current = (href: string) => (href === path ? true : undefined);
 
 const menu = [
   { href: "/uses", text: "Uses" },
@@ -12,7 +13,7 @@ const menu = [
 ---
 
 <header class="mt-4 mb-8">
-  <nav class="flex flex-wrap gap-2 justify-between max-w-4xl mx-auto">
+  <nav class="flex flex-wrap gap-4 items-center justify-between">
     <a href="/" class="text-xl shrink-0 font-bold">{SITE_TITLE}</a>
 
     <menu class="flex gap-4">
@@ -21,7 +22,8 @@ const menu = [
           <li>
             <a
               href={href}
-              class={pathname === href ? "underline underline-offset-8 " : ""}
+              aria-current={current(href)}
+              class="aria-current:underline underline-offset-8"
             >
               {text}
             </a>

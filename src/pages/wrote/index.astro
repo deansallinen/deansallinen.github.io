@@ -12,13 +12,13 @@ const posts = (await getCollection("blog")).sort(
   <h2>Recent</h2>
   <ul>
     {
-    posts.map((post) => (
-    <li>
-      <a class="hover:underline" href={`/wrote/${post.slug}/`}>
-        <FormattedDate date={post.data.pubDate} /> - {post.data.title}
-      </a>
-    </li>
-    ))
+      posts.map((post) => (
+        <li>
+          <a class="hover:underline" href={`/wrote/${post.slug}/`}>
+            <FormattedDate date={post.data.pubDate} /> - {post.data.title}
+          </a>
+        </li>
+      ))
     }
   </ul>
 </Layout>

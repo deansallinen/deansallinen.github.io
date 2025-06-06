@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Outbound from "../components/Outbound.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog"))
@@ -10,8 +9,8 @@ const posts = (await getCollection("blog"))
 
 const projects = [
   {
-    name: "Unicove 2.0",
-    url: "https://v2.unicove.com/",
+    name: "Unicove",
+    url: "https://unicove.com/",
   },
   {
     name: "Anchor Android",
@@ -39,15 +38,15 @@ const projects = [
 <Layout>
   <main class="leading-normal space-y-6">
     <p>
-      I'm currently a Frontend Developer at
+      I'm a Frontend Developer at
       <a href="https://greymass.com" class="underline">Greymass</a>
-      coding, designing, and tinkering with new technology.
+      - coding, designing, and tinkering
     </p>
 
     <section>
       <p>
         You can find me on <a href="https://github.com/deansallinen">Github</a> where
-        I've been working on these projects and more
+        I've been working on things like
       </p>
 
       <ul class="list-disc my-2 space-y-2">
@@ -56,7 +55,7 @@ const projects = [
             <li>
               <a class="flex gap-2 items-center" href={project.url}>
                 {project.name}
-                <svg>
+                <svg viewBox="0 0 24 24" width="16" height="16">
                   <use href="#outbound" />
                 </svg>
               </a>
