@@ -56,7 +56,9 @@ const projects = [
             <li>
               <a class="flex gap-2 items-center" href={project.url}>
                 {project.name}
-                <Outbound />
+                <svg>
+                  <use href="#outbound" />
+                </svg>
               </a>
             </li>
           ))

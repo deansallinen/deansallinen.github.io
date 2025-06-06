@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Header from "../components/Header.astro";
+import Sprites from "../components/Sprites.astro";
 
 interface Props {
   title?: string;
@@ -23,8 +24,9 @@ const {
   </head>
   <body class="max-w-2xl px-4 mx-auto mb-8">
     <Header />
-    <main class="prose prose-sm dark:prose-invert ">
-    <slot />
+    <Sprites />
+    <main class="prose prose-sm dark:prose-invert">
+      <slot />
     </main>
   </body>
 </html>
