@@ -28,7 +28,6 @@ func main() {
 
 	tmpl, err := template.ParseFiles(
 		"templates/layout.html",
-		"templates/header.html",
 	)
 	if err != nil {
 		panic(fmt.Sprintf("Failed to parse templates: %v", err))

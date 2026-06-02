@@ -111,6 +111,7 @@ a {
   color: var(--text-color);
   text-underline-offset: 0.25rem;
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 p {

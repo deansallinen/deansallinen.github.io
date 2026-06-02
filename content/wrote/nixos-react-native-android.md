@@ -300,9 +300,9 @@ List of devices attached
 Now I can start my react-native project as usual and get back to work. 
 
 ## Resources
-- https://github.com/eekrain/nix-react-native
-- https://github.com/tadfisher/android-nixpkgs
-- https://developer.android.com/studio/run/device
-- https://nixos.wiki/wiki/Android
-- https://wiki.archlinux.org/title/Android_Debug_Bridge
-- https://search.nixos.org/packages
+- [https://github.com/eekrain/nix-react-native](https://github.com/eekrain/nix-react-native)
+- [https://github.com/tadfisher/android-nixpkgs](https://github.com/tadfisher/android-nixpkgs)
+- [https://developer.android.com/studio/run/device](https://developer.android.com/studio/run/device)
+- [https://nixos.wiki/wiki/Android](https://nixos.wiki/wiki/Android)
+- [https://wiki.archlinux.org/title/Android_Debug_Bridge](https://wiki.archlinux.org/title/Android_Debug_Bridge)
+- [https://search.nixos.org/packages](https://search.nixos.org/packages)
