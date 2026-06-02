@@ -1,21 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="color-scheme" content="light dark" />
-    <title>Dean Sallinen</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    {{ template "header" . }} {{ .Content }}
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Dean Sallinen</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+  <header>
+    <a id="title" href="/index.html">Dean Sallinen</a>
+
+    <menu>
+      <li>
+        <a href="/uses.html">Uses</a>
+      </li>
+      <li>
+        <a href="/index.html#wrote">Wrote</a>
+      </li>
+      <li>
+        <a href="/now.html">Now</a>
+      </li>
+    </menu>
+  </header>
+
+  {{ template "header" . }} {{ .Content }}
+</body>
+
 </html>
 
 <style>
   body {
     padding-inline: 2rem;
     margin-bottom: 4rem;
+  }
+
+  header {
+    margin-block: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  #title {
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    font-size: var(--font-lg);
+  }
+
+  menu {
+    display: flex;
+    gap: 1rem;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & [aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+    }
   }
 </style>
