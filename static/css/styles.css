@@ -145,6 +145,7 @@ pre {
   padding-inline: 1.25rem;
   padding-block: 1rem;
   border-radius: 0.5rem;
+  overflow: auto;
 }
 
 /* :root { */

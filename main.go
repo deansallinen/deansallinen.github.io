@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/yuin/goldmark"
+	highlighting "github.com/yuin/goldmark-highlighting/v2"
 )
 
 type PageData struct {
@@ -32,6 +33,14 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("Failed to parse templates: %v", err))
 	}
+
+	mdParser := goldmark.New(
+		goldmark.WithExtensions(
+			highlighting.NewHighlighting(
+				highlighting.WithStyle("dracula"),
+			),
+		),
+	)
 
 	err = filepath.WalkDir("content", func(path string, d os.DirEntry, err error) error {
 		if err != nil {
@@ -89,7 +98,7 @@ func main() {
 		var htmlContent string
 		if ext == ".md" {
 			var buf bytes.Buffer
-			if err := goldmark.Convert([]byte(body), &buf); err != nil {
+			if err := mdParser.Convert([]byte(body), &buf); err != nil {
 				return fmt.Errorf("Markdown error in %s: %v\n", path, err)
 			}
 			htmlContent = buf.String()
