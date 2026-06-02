@@ -5,6 +5,24 @@ pubDate: 'Apr 12 2024'
 updatedDate: 'Sep 13 2024'
 ---
 
+<style>
+#updatedAt {
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  opacity: 80%;
+}
+
+h1 {
+  margin-top: 1rem;
+}
+</style>
+
+April 12, 2024
+
+# NixOS for React Native Android development
+
+_Last updated on Sep 13, 2024_
+
 Here's how I got a working setup for React Native Android development on NixOS. 
 
 First off, is this the best setup? No. I still don't really know what I'm doing when it comes to Nix or NixOS. The combination here just happens to  work for me. Once I learn more about Nix and NixOS I'll optimize and make changes. Hopefully I'll remember to update this post too.
@@ -23,9 +41,9 @@ I also added `node`, `yarn`, and `prettierd` here but they should go in the proj
 # /etc/nixos/configuration.nix
 
 {
-  config,
-  pkgs,
-  ...
+config,
+pkgs,
+...
 }: {
   imports = [
     ./hardware-configuration.nix
@@ -66,7 +84,7 @@ I also added `node`, `yarn`, and `prettierd` here but they should go in the proj
 
   # Not sure if this is necessary if the above is set?
   services.udev.packages = [
-	pkgs.android-udev-rules
+    pkgs.android-udev-rules
   ];
 
   # ... Other lines omitted
@@ -79,9 +97,9 @@ I also added `node`, `yarn`, and `prettierd` here but they should go in the proj
 # ~/.config/home-manager/home.nix
 
 {
-  config,
-  pkgs,
-  ...
+config,
+pkgs,
+...
 }: {
   home.username = "dean";
   home.homeDirectory = "/home/dean";
@@ -128,7 +146,7 @@ Note: The versions listed are specific to my project.
     devshell,
     flake-utils,
     android,
-  }:
+    }:
     {
       overlay = final: prev: {
         inherit (self.packages.${final.system}) android-sdk android-studio;
@@ -189,53 +207,53 @@ In `devshell.nix` we create a new shell environment with all the required packag
 # Documentation: https://github.com/numtide/devshell
 {pkgs}:
 with pkgs;
-  devshell.mkShell {
-    name = "android-project";
-    motd = ''
+devshell.mkShell {
+  name = "android-project";
+  motd = ''
       Entered the Android app development environment.
-    '';
-    env = [
-      {
-        name = "ANDROID_HOME";
-        value = "${android-sdk}/share/android-sdk";
-      }
-      {
-        name = "ANDROID_SDK_ROOT";
-        value = "${android-sdk}/share/android-sdk";
-      }
-      {
-        name = "JAVA_HOME";
-        value = jdk17.home;
-      }
-      {
-        name = "GRADLE_OPTS";
-        value = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${aapt}/bin/aapt2"; # Using the nixpkgs aapt2 to resolve an issue with dynamically linked executables
-      }
-      {
-        name = "PATH";
-        prefix = "${android-sdk}/share/android-sdk/emulator";
-      }
-      {
-        name = "PATH";
-        prefix = "${android-sdk}/share/android-sdk/platform-tools";
-      }
-    ];
-    commands = [
-      {
-        help = "take screenshot of connected android device";
-        name = "adbcap";
-        command = "adb exec-out screencap -p > /tmp/screen-$(date +%Y-%m-%d-%H.%M.%S).png";
-      }
-    ];
-    packages = [
-      android-studio
-      android-sdk
-      gradle
-      jdk17
-      aapt
-      # here is where I'd add nodejs and yarn 
-    ];
-  }
+  '';
+  env = [
+    {
+      name = "ANDROID_HOME";
+      value = "${android-sdk}/share/android-sdk";
+    }
+    {
+      name = "ANDROID_SDK_ROOT";
+      value = "${android-sdk}/share/android-sdk";
+    }
+    {
+      name = "JAVA_HOME";
+      value = jdk17.home;
+    }
+    {
+      name = "GRADLE_OPTS";
+      value = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${aapt}/bin/aapt2"; # Using the nixpkgs aapt2 to resolve an issue with dynamically linked executables
+    }
+    {
+      name = "PATH";
+      prefix = "${android-sdk}/share/android-sdk/emulator";
+    }
+    {
+      name = "PATH";
+      prefix = "${android-sdk}/share/android-sdk/platform-tools";
+    }
+  ];
+  commands = [
+    {
+      help = "take screenshot of connected android device";
+      name = "adbcap";
+      command = "adb exec-out screencap -p > /tmp/screen-$(date +%Y-%m-%d-%H.%M.%S).png";
+    }
+  ];
+  packages = [
+    android-studio
+    android-sdk
+    gradle
+    jdk17
+    aapt
+    # here is where I'd add nodejs and yarn 
+  ];
+}
 ```
 
 And finally, the `.envrc` needed for `direnv` to know to use the flake.
@@ -245,8 +263,8 @@ And finally, the `.envrc` needed for `direnv` to know to use the flake.
 
 if ! has nix_direnv_version || ! nix_direnv_version 2.1.1; then
   source_url "https://raw.githubusercontent.com/nix-community/nix-direnv/2.1.1/direnvrc" "sha256-b6qJ4r34rbE23yWjMqbmu3ia2z4b2wIlZUksBke/ol0="
-fi
-use flake
+  fi
+  use flake
 ```
 
 Note: you'll need to add the changes in git otherwise you'll get some error stating flake.nix is not found. `git add -A && git commit -m "Add flake.nix"` worked for me.

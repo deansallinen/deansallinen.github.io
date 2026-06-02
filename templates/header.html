@@ -1,28 +1,17 @@
----
-const { pathname } = Astro.url;
-
-const current = (href: string) => (href === pathname ? "page" : "false");
-
-const menu = [
-  { href: "/uses/", text: "Uses" },
-  { href: "/wrote/", text: "Wrote" },
-  { href: "/now/", text: "Now" },
-];
----
-
+{{ define "header" }}
 <header>
-  <a id="title" href="/">Dean Sallinen</a>
+  <a id="title" href="/index.html">Dean Sallinen</a>
 
   <menu>
-    {
-      menu.map(({ href, text }) => (
-        <li>
-          <a href={href} aria-current={current(href)}>
-            {text}
-          </a>
-        </li>
-      ))
-    }
+    <li>
+      <a href="/uses.html">Uses</a>
+    </li>
+    <li>
+      <a href="/index.html#wrote">Wrote</a>
+    </li>
+    <li>
+      <a href="/now.html">Now</a>
+    </li>
   </menu>
 </header>
 
@@ -57,3 +46,4 @@ const menu = [
     }
   }
 </style>
+{{ end }}

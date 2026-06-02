@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Dean Sallinen</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    {{ template "header" . }} {{ .Content }}
+  </body>
+</html>
+
+<style>
+  body {
+    padding-inline: 2rem;
+    margin-bottom: 4rem;
+  }
+</style>
